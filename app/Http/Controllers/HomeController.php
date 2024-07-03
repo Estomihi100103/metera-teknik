@@ -12,7 +12,7 @@ class HomeController extends Controller
     {
         $categories = Category::latest()->take(5)->get();
         $products = Product::latest()->take(3)->get();
-        $title = 'Home';
+        $title = 'Distributor Flow Meter dan Alat Teknik Terlengkap di Indonesia';
         return view('home')->with([
             'categories' => $categories,
             'products' => $products,

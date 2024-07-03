@@ -11,7 +11,7 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-        $title = 'Category';
+        $title = 'Kategori Alat Ukur: Liquid Control, Flow Meter, Water Meter, Level Sensor, Transmitter';
         return view('category.index', compact('categories', 'title'));
     }
 

@@ -68,7 +68,7 @@
                         <span class="block sm:inline">Service &</span>
                         <span class="block sm:inline">Kalibrasi</span>
                     </h2>
-                    <p class="mt-3 text-xl text-white">Kami adalah perusahaan distribusi dan suplai alat-alat industri seperti flow meter dan water meter. Produk kami digunakan untuk mengukur berbagai jenis cairan, mulai dari gas, minyak, air hingga zat kimia korosif. Dengan keandalan dan akurasi, kami melayani berbagai sektor industri di Indonesia.</p>
+                    <p class="mt-3 text-xl text-white">Kami adalah perusahaan Distributor alat-alat industri seperti flow meter dan water meter. Produk kami digunakan untuk mengukur berbagai jenis cairan, mulai dari gas, minyak, air hingga zat kimia korosif. Dengan keandalan dan akurasi, kami melayani berbagai sektor industri di Indonesia.</p>
                     <a href="/contact#contact-section"
                         class="mt-8 block w-full rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-gray-900 hover:bg-gray-100 sm:w-auto">
                         Pusat Layanan</a>
@@ -118,7 +118,7 @@
                 <div class="relative mx-auto flex max-w-3xl flex-col items-center text-center">
                     <h2 id="comfort-heading" class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
                         Project</h2>
-                    <p class="mt-3 text-xl text-white">Bumi Metera Teknik dengan bangga telah menjadi mitra andal dalam melayani berbagai perusahaan industri terkemuka di Indonesia. Kepercayaan ini tercapai berkat komitmen kami terhadap kualitas dan keandalan produk.</p>
+                    <p class="mt-3 text-xl text-white">Metera Teknik dengan bangga telah menjadi mitra andal dalam melayani berbagai perusahaan industri terkemuka di Indonesia. Kepercayaan ini tercapai berkat komitmen kami terhadap kualitas dan keandalan produk.</p>
                     <a href="/galery"
                         class="mt-8 block w-full rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-gray-900 hover:bg-gray-100 sm:w-auto">Tinjau</a>
                 </div>
