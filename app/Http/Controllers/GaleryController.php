@@ -10,7 +10,7 @@ class GaleryController extends Controller
     //indes 
     public function index()
     {   
-        $title = 'Galeri';
+        $title = 'Project | Liquid Control, Flow Meter, Water Meter';
         //ambil data dari Galery  berdasarkan yang terbaru
         $galeries = Galeri::latest()->get();
         

@@ -13,8 +13,7 @@
                             <h1 class="text-3xl font-bold tracking-tight text-gray-900 lg:text-6xl">METERATEKNIK
                             </h1>
                         </div>
-                        <p class=" text-xl my-4 text-center text-gray-800 font-bold">Pusat Penjualan Alat Alat Industri dan
-                            Peralatan Keamanan serta Peralatan Profesional</p>
+                        <p class=" text-xl my-4 text-center text-gray-800 font-bold">Distributor Flow Meter dan Alat Teknik serta Industri Terlengkap di Indonesia</p>
                         <div class="flex justify-center">
                             <a href="/contact#contact-section"
                                 class="mt-8 inline-block  rounded-md border border-transparent bg-white px-8 py-3 text-base text-center font-medium text-gray-900 hover:bg-gray-400">Contact
@@ -43,10 +42,7 @@
                     <div class="relative mx-auto flex max-w-3xl flex-col items-center text-center">
                         <h2 id="comfort-heading" class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
                             Optimasi Industri</h2>
-                        <p class="mt-3 text-xl text-white">Optimalkan Industri dengan Oil Flow Meter. Mengukur aliran
-                            dan volume minyak di pipa atau sistem, alat ini memantau proses, efisiensi, dan penagihan
-                            yang akurat. Diterapkan dalam berbagai sektor termasuk minyak dan gas, otomotif, serta
-                            petrokimia. Tingkatkan akurasi dan efisiensi pengukuran aliran minyak sekarang.</p>
+                        <p class="mt-3 text-xl text-white">Akurasi dan Efisiensi Pengukuran dengan Oil Flow Meter</p>
                         <a href="/contact#contact-section"
                             class="mt-8 block w-full rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-gray-900 hover:bg-gray-100 sm:w-auto">Contact
                             Us</a>
@@ -71,9 +67,7 @@
                     <div class="relative mx-auto flex max-w-3xl flex-col items-center text-center">
                         <h2 id="comfort-heading" class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
                             Optimalkan Konsumsi Air</h2>
-                        <p class="mt-3 text-xl text-white">Kontrol Penggunaan Air dengan PDAM Water Meters.
-                            Monitor konsumsi air Anda dengan akurat dan hemat menggunakan alat ini. Hemat biaya dan
-                            bantu pelestarian sumber daya air.</p>
+                        <p class="mt-3 text-xl text-white">Kontrol Air Anda dengan PDAM Water Meters: Akurat dan Hemat</p>
                         <a href="/contact#contact-section"
                             class="mt-8 block w-full rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-gray-900 hover:bg-gray-100 sm:w-auto">Contact
                             Us</a>

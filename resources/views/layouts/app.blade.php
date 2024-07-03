@@ -3,9 +3,39 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="/js/alpinejs.js"></script>
     <title>{{ $title }}</title>
+    <meta name="description" content="Metera Teknik: Distributor Flow Meter dan Alat Teknik Indonesia| liquid control, flowmeter, water meter,  nozzle tester, hydrometer">
     <link rel="icon" href="/img/Logo.png" type="image/x-icon">
+    <link rel="canonical" href="https://meterateknik.com">
+
+    <meta property="og:title" content="Distributor Flow Meter dan Alat Teknik Indonesia | Metera Teknik">
+    <meta property="og:description" content="Penyedia terpercaya alat-alat industri seperti flowmeter, water meter, liquid control, nozzle tester, dan hydrometer di Indonesia.">
+    <meta property="og:image" content="https://meterateknik.com/img/Logo.png">
+    <meta property="og:url" content="https://meterateknik.com">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Distributor Flow Meter dan Alat Teknik Indonesia | Metera Teknik">
+    <meta name="twitter:description" content="Penyedia terpercaya alat-alat industri seperti flowmeter, water meter, liquid control, nozzle tester, dan hydrometer di Indonesia.">
+    <meta name="twitter:image" content="https://meterateknik.com/img/Logo.png">
+    <meta name="twitter:url" content="https://meterateknik.com">
+
+    {{-- <meta name="google-site-verification" content="gh4HPYYiQ_5mAnPOopRU5lus4K8BU0h6KuJ5kuKlYqQ" /> --}}
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Metera Teknik",
+        "url": "https://meterateknik.com",
+        "logo": "https://meterateknik.com/img/Logo.png",
+        "description": "Distributor Flow Meter dan Pusat Perlengkapan Alat Teknik Indonesia"
+        }
+    </script>
+
     @vite(['resources/js/app.js'])
     @vite('resources/css/app.css')
     <style>
@@ -35,7 +65,17 @@
         }
     </style>
 </head>
-
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Metera Teknik",
+  "url": "https://meterateknik.com",
+  "logo": "https://meterateknik.com/img/Logo.png",
+  "description": "Distributor Flow Meter dan Pusat Perlengkapan Alat Teknik Indonesia"
+}
+</script>
 <body>
     <a href="https://api.whatsapp.com/send?phone=6282365632913&text=Halo%2C%20saya%20tertarik%20dengan%20produk%20Anda."
         target="_blank" class="fixed bottom-5 right-5 z-50 transition-transform ease-in-out hover:scale-110">
@@ -58,7 +98,7 @@
                             <div class="mx-auto flex h-10 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
                                 <!-- Currency selector -->
                                 <div class="flex items-center space-x-6">
-                                    <p class="text-white font-bold text-sm">Distributor Flowmeter dan Pusat
+                                    <p class="text-white font-bold text-sm">Distributor Flow Meter dan Pusat
                                         Perlengkapan Alat Teknik Indonesia</p>
                                 </div>
                             </div>
@@ -255,6 +295,7 @@
                 dots[slideIndex - 1].classList.add('bg-yellow-500');
             }
         </script>
+        
 </body>
 
 </html>
