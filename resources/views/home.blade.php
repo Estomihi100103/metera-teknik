@@ -100,7 +100,6 @@
                         @endif
                     </div>
                     <h3 class="mt-4 text-base font-semibold text-gray-900">{{ $product->product_name }}</h3>
-                    <p class="mt-2 text-sm text-gray-500">{!! $product->deskripsi !!}</p>
                 </a>
             @endforeach
         </div>
