@@ -23,7 +23,7 @@
                         {{-- categories --}}
                         @foreach ($categories as $category)
                             <a href="/category/{{ $category->slug }}"
-                                class="relative flex h-80 w-56 flex-col overflow-hidden bg-gray-300 rounded-lg p-6 hover:opacity-75 xl:w-auto">
+                                class="relative flex h-80 w-56 flex-col overflow-hidden bg-white rounded-lg p-6 hover:opacity-75 xl:w-auto">
                                 <span aria-hidden="true" class="absolute inset-0">
                                     @if ($category->image)
                                         <img src="{{ asset('storage/' . $category->image) }}" alt="Gambar Kategori"

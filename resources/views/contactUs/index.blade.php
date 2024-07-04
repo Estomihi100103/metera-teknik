@@ -16,8 +16,9 @@
                     <div>
                         <h1 class="border-l border-indigo-600 pl-6 font-semibold text-gray-900">Lokasi</h1>
                         <address class="border-l border-gray-200 pl-6 pt-2 not-italic text-gray-600">
-                            <p>GEDUNG MGK KEMAYORAN</p>
-                            <p>LT.GF Blok A5 </p>
+                            <p class="text-sm">Jl. Angkasa No.06 Blok B10 Gunung Sahari Selatan Central Jakarta 10610</p>
+                            <p class="text-sm">GEDUNG MGK KEMAYORAN</p>
+                            <p class="text-sm">LT.GF Blok A5 No.8</p>
                         </address>
                     </div>
                     <div>

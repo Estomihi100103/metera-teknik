@@ -11,17 +11,13 @@
                 class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
                 <!-- Product details -->
                 <div class="lg:max-w-lg lg:self-end">
-                    <div class="">
-                        <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{ $product->nama_produk }}
+                    <div>
+                        <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{{ $product->product_name }}
                         </h1>
                     </div>
                     <section aria-labelledby="information-heading" class="mt-4">
                         <h2 id="information-heading" class="sr-only">Product information</h2>
                         <div class="flex items-center">
-                            {{-- <p class="text-lg text-gray-900 sm:text-xl">$220</p> --}}
-
-                            <p class="text-lg text-gray-700 sm:text-xl">{{ $product->category->name }}</p>
-
                             <div class="ml-4 border-l border-gray-300 pl-4">
                                 <h2 class="sr-only">Reviews</h2>
                             </div>
@@ -57,7 +53,6 @@
                                 alt="Model wearing light green backpack with black canvas straps and front zipper pouch."
                                 class="h-full w-full object-cover object-center">
                         @endif
-
                     </div>
                 </div>
 

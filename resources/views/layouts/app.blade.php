@@ -116,7 +116,7 @@
                                 <div class="hidden lg:flex lg:flex-1 lg:items-center">
                                     <a href="/">
                                         <span class="sr-only">Nusantara Berkat Teknik</span>
-                                        <img class="h-20 w-auto" src="img/Logo.png" alt="">
+                                        <img class="h-20 w-auto" src="/img/Logo.png" alt="">
                                     </a>
                                 </div>
                                 <div class="hidden h-full lg:flex ">

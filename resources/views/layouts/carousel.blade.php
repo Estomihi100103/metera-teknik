@@ -5,18 +5,19 @@
             checked="checked">
         <div class="carousel-item absolute opacity-0 " style="height:500px;">
             <div class="block w-full h-full object-cover mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-right"
-                style="background-image: url('/img/industri 2.jpg');">
+                style="background-image: url('/img/industri 2_zon.jpg');">
                 <div class="container mx-auto flex justify-center">
                     <div
-                        class=" w-full lg:w-1/2  md:items-start px-6 tracking-wide mt-20 md:mt-0 bg-white bg-opacity-20 backdrop-filter backdrop-blur-lg py-6">
+                        class="w-3/4 lg:w-1/2 md:items-start px-6 tracking-wide mt-20 md:mt-0 bg-white bg-opacity-20 backdrop-filter backdrop-blur-lg py-6">
                         <div class="flex justify-center">
                             <h1 class="text-3xl font-bold tracking-tight text-gray-900 lg:text-6xl">METERATEKNIK
                             </h1>
                         </div>
-                        <p class=" text-xl my-4 text-center text-gray-800 font-bold">Distributor Flow Meter dan Alat Teknik serta Industri Terlengkap di Indonesia</p>
+                        <p class=" text-xl my-4 text-center text-gray-800 font-bold">Distributor Flow Meter dan Alat
+                            Teknik serta Industri Terlengkap di Indonesia</p>
                         <div class="flex justify-center">
                             <a href="/contact#contact-section"
-                                class="mt-8 inline-block  rounded-md border border-transparent bg-white px-8 py-3 text-base text-center font-medium text-gray-900 hover:bg-gray-400">Contact
+                                class="md:mt-8 mt-0 inline-block  rounded-md border border-transparent bg-white px-8 py-3 text-base text-center font-medium text-gray-900 hover:bg-gray-400">Contact
                                 Us</a>
                         </div>
                     </div>
@@ -67,7 +68,8 @@
                     <div class="relative mx-auto flex max-w-3xl flex-col items-center text-center">
                         <h2 id="comfort-heading" class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
                             Optimalkan Konsumsi Air</h2>
-                        <p class="mt-3 text-xl text-white">Kontrol Air Anda dengan PDAM Water Meters: Akurat dan Hemat</p>
+                        <p class="mt-3 text-xl text-white">Kontrol Air Anda dengan PDAM Water Meters: Akurat dan Hemat
+                        </p>
                         <a href="/contact#contact-section"
                             class="mt-8 block w-full rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-gray-900 hover:bg-gray-100 sm:w-auto">Contact
                             Us</a>
