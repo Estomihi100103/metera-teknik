@@ -3,27 +3,26 @@
         <!--Slide 1-->
         <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden=""
             checked="checked">
-        <div class="carousel-item absolute opacity-0 " style="height:500px;">
-            <div class="block w-full h-full object-cover mx-auto flex pt-6 md:pt-0 md:items-center bg-cover bg-right"
-                style="background-image: url('/img/industri 2_zon.jpg');">
-                <div class="container mx-auto flex justify-center">
-                    <div
-                        class="w-3/4 lg:w-1/2 md:items-start px-6 tracking-wide mt-20 md:mt-0 bg-white bg-opacity-20 backdrop-filter backdrop-blur-lg py-6">
-                        <div class="flex justify-center">
-                            <h1 class="text-3xl font-bold tracking-tight text-gray-900 lg:text-6xl">METERATEKNIK
-                            </h1>
-                        </div>
-                        <p class=" text-xl my-4 text-center text-gray-800 font-bold">Distributor Flow Meter dan Alat
+
+        <div class="carousel-item absolute opacity-0 bg-cover bg-right" style="height:500px;">
+            <div class="relative overflow-hidden rounded-lg">
+                <div class="absolute inset-0">
+                    <img src="/img/industri 2_zon.jpg" alt="" class="h-full w-full object-cover object-center">
+                </div>
+                <div class="relative bg-gray-900 bg-opacity-75 px-6 py-32 sm:px-12 sm:py-40 lg:px-16">
+                    <div class="relative mx-auto flex max-w-3xl flex-col items-center text-center" style="height: 300px">
+                        <h2 id="comfort-heading" class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                            METERA TEKNIK INDONESIA</h2>
+                        <p class="mt-3 text-xl text-white">Distributor Flow Meter dan Alat
                             Teknik serta Industri Terlengkap di Indonesia</p>
-                        <div class="flex justify-center">
-                            <a href="/contact#contact-section"
-                                class="md:mt-8 mt-0 inline-block  rounded-md border border-transparent bg-white px-8 py-3 text-base text-center font-medium text-gray-900 hover:bg-gray-400">Contact
-                                Us</a>
-                        </div>
+                        <a href="/contact#contact-section"
+                            class="md:mt-6 mt-4 inline-block  rounded-md border border-transparent bg-white px-8 py-3 text-base text-center font-medium text-gray-900 hover:bg-gray-400">Contact
+                            Us</a>
                     </div>
                 </div>
             </div>
         </div>
+
         <label for="carousel-3"
             class="prev control-1 w-10 h-10 ml-2 md:ml-10 absolute cursor-pointer hidden text-3xl font-bold text-black hover:text-white rounded-full bg-white hover:bg-gray-900 leading-tight text-center z-10 inset-y-0 left-0 my-auto">‹</label>
         <label for="carousel-2"
@@ -40,12 +39,13 @@
                     <img src="/img/hal dpn 1.jpg" alt="" class="h-full w-full object-cover object-center">
                 </div>
                 <div class="relative bg-gray-900 bg-opacity-75 px-6 py-32 sm:px-12 sm:py-40 lg:px-16">
-                    <div class="relative mx-auto flex max-w-3xl flex-col items-center text-center">
+                    <div class="relative mx-auto flex max-w-3xl flex-col items-center text-center" style="height: 300px">
                         <h2 id="comfort-heading" class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                            Optimasi Industri</h2>
-                        <p class="mt-3 text-xl text-white">Akurasi dan Efisiensi Pengukuran dengan Oil Flow Meter</p>
+                            METERA TEKNIK INDONESIA</h2>
+                        <p class="mt-3 text-xl md:text-xl text-white">Distributor Flow Meter dan Alat
+                            Teknik serta Industri Terlengkap di Indonesia</p>
                         <a href="/contact#contact-section"
-                            class="mt-8 block w-full rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-gray-900 hover:bg-gray-100 sm:w-auto">Contact
+                            class="md:mt-6 mt-4 inline-block  rounded-md border border-transparent bg-white px-8 py-3 text-base text-center font-medium text-gray-900 hover:bg-gray-400">Contact
                             Us</a>
                     </div>
                 </div>
@@ -65,13 +65,13 @@
                     <img src="/img/water meter.jpeg" alt="" class="h-full w-full object-cover object-center">
                 </div>
                 <div class="relative bg-gray-900 bg-opacity-75 px-6 py-32 sm:px-12 sm:py-40 lg:px-16">
-                    <div class="relative mx-auto flex max-w-3xl flex-col items-center text-center">
+                    <div class="relative mx-auto flex max-w-3xl flex-col items-center text-center" style="height: 300px">
                         <h2 id="comfort-heading" class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                            Optimalkan Konsumsi Air</h2>
-                        <p class="mt-3 text-xl text-white">Kontrol Air Anda dengan PDAM Water Meters: Akurat dan Hemat
-                        </p>
+                            METERA TEKNIK INDONESIA</h2>
+                        <p class="mt-3 text-xl text-white">Distributor Flow Meter dan Alat
+                            Teknik serta Industri Terlengkap di Indonesia</p>
                         <a href="/contact#contact-section"
-                            class="mt-8 block w-full rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-gray-900 hover:bg-gray-100 sm:w-auto">Contact
+                            class="md:mt-6 mt-4 inline-block  rounded-md border border-transparent bg-white px-8 py-3 text-base text-center font-medium text-gray-900 hover:bg-gray-400">Contact
                             Us</a>
                     </div>
                 </div>
@@ -99,7 +99,6 @@
         </ol>
     </div>
 </div>
-
 
 <style>
     .work-sans {
@@ -164,7 +163,7 @@
             slides[currentSlide].checked = false;
             currentSlide = (currentSlide + 1) % slides.length;
             slides[currentSlide].checked = true;
-        }, 15000); // Ganti slide setiap 5 detik
+        }, 10000); 
     }
 
     // Jalankan fungsi saat halaman dimuat

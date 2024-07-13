@@ -73,11 +73,7 @@
         <div class="lg:row-span-2 lg:mt-0">
             <div class="border-b border-gray-200 pb-5">
                 <h3 class="text-base font-semibold leading-6 text-gray-900">Katalog</h3>
-                <p class="mt-2 max-w-4xl text-sm text-gray-500">Workcation is a property rental website. Etiam ullamcorper
-                    massa viverra consequat, consectetur id nulla tempus. Fringilla egestas justo massa purus sagittis
-                    malesuada. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Earum et sint molestiae suscipit,
-                    eius deleniti molestias nemo eos laudantium laboriosam nam ipsam error? Distinctio ut at ab dolor a
-                    nobis!</p>
+                <p class="mt-2 max-w-4xl text-sm text-gray-500">Kami berkomitmen teguh terhadap kualitas, menjadikan integritas rekayasa dan desain sebagai dasar dari segala yang kami lakukan. Dedikasi ini mendefinisikan identitas kami dan menggambarkan pengejaran kami terhadap keunggulan.!</p>
             </div>
             <div>
                 <ul>

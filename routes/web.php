@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\KatalogController;
 use App\Http\Controllers\GaleryController;
+use App\Http\Controllers\OtherServiceController;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::get('/search', [HomeController::class, 'searchProduct'])->name('products.search');
@@ -18,3 +19,5 @@ Route::get('/category/{category:slug}', [CategoryController::class, 'show'])->na
 Route::get('/contact', [HomeController::class, 'contactUs'])->name('contact.index');
 Route::get('/katalog', [KatalogController::class, 'index'])->name('katalog.index');
 Route::get('/galery', [GaleryController::class, 'index'])->name('galery.index');
+Route::get('/calibration',[OtherServiceController::class, 'calibration'])->name('service.calibration');
+

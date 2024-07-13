@@ -11,16 +11,12 @@
 
                     <main>
                         <div class="mx-auto max-w-3xl px-4 sm:px-6 lg:max-w-7xl lg:px-8">
-                            <div class="py-24 text-center">
+                            <div class="py-24 text-center mt-2">
                                 <h1 class="text-4xl font-bold tracking-tight text-gray-900">Project</h1>
-                                {{-- <p class="mx-auto mt-4 max-w-3xl text-base text-gray-500">Thoughtfully designed objects for
-                                    the workspace, home, and travel.</p> --}}
                             </div>
-
-
                             <!-- Galery grid -->
                             <section aria-labelledby="featured-heading"
-                                class="relative mt-16 overflow-hidden rounded-lg lg:h-96">
+                                class="relative mt-10 overflow-hidden rounded-lg lg:h-96">
                                 @if ($galeries->isNotEmpty())
                                     @php
                                         $latestGallery = $galeries->first(); // Ambil galeri terbaru
@@ -35,7 +31,7 @@
                                         class="absolute inset-x-0 bottom-0 rounded-bl-lg rounded-br-lg bg-black bg-opacity-75 p-6 backdrop-blur backdrop-filter sm:flex sm:items-center sm:justify-between lg:inset-x-auto lg:inset-y-0 lg:w-96 lg:flex-col lg:items-start lg:rounded-br-none lg:rounded-tl-lg">
                                         <div>
                                             <h2 id="featured-heading" class="text-xl font-bold text-white">Project Baru</h2>
-                                            <p class="mt-1 text-sm text-white ">{!! $latestGallery->deskripsi !!}</p>
+                                            <p class="mt-1 text-sm text-white" style="color: white">{!! $latestGallery->deskripsi !!}</p>
                                         </div>
                                     </div>
                                 @endif

@@ -46,6 +46,12 @@ class ProductResource extends Resource
                             \App\Models\Category::all()->pluck('name', 'id')->toArray()
                         )
                         ->required(),
+                    //brand
+                    Forms\Components\Select::make('brand_id')
+                        ->label('Brand')
+                        ->options(
+                            \App\Models\Brand::all()->pluck('name', 'id')->toArray()
+                        ),
                     Forms\Components\FileUpload::make('image')
                         ->label('Image'),
                     RichEditor::make('deskripsi'),
