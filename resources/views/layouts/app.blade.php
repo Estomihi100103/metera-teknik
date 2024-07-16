@@ -106,37 +106,47 @@
                     </nav>
                 </header>
                 <!-- Main navigation -->
-                <div class=" w-full bg-white md:bg-gray-900 md:bg-opacity-10 md:backdrop-blur-md md:backdrop-filter absolute z-10">
+                <div
+                    class=" w-full bg-white md:bg-gray-900 md:bg-opacity-10 md:backdrop-blur-md md:backdrop-filter absolute z-10">
                     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                         <div class="flex h-20 justify-between">
                             <div class="flex px-2 lg:px-0">
-                                <div class="flex flex-shrink-0 items-center">
+                                <div class="flex flex-shrink-0 items-center mt-2">
                                     <a href="/">
-                                        <img class="h-16 md:h-20 w-auto"
-                                        src="/img/Logo.png"
-                                        alt="Your Company">
+                                        <img class="h-16 md:h-28 w-auto" src="/img/Logo.png" alt="Your Company">
                                     </a>
                                 </div>
                                 <div class="hidden lg:ml-6 lg:flex lg:space-x-8">
-                                    <a href="/"
-                                        class="flex items-center text-lg font-bold text-white">Company</a>
+                                    <a href="/" class="flex items-center text-base font-bold text-white">Company</a>
                                     <a href="/product"
-                                        class="flex items-center text-lg font-bold text-white">Product</a>
+                                        class="flex items-center text-base font-bold text-white">Product</a>
                                     <a href="/katalog"
-                                        class="flex items-center text-lg font-bold text-white">Katalog</a>
+                                        class="flex items-center text-base font-bold text-white">Katalog</a>
+                                    <a href="/contact"
+                                        class="flex items-center text-base font-bold text-white">Contact</a>
+                                    <a href="/calibration" class="flex items-center text-base font-bold text-white">Service &
+                                        Kalibrasi</a>
+
                                 </div>
                             </div>
                             <div class="flex flex-1 items-center justify-center px-2 lg:ml-6 lg:justify-end">
                                 <div class="w-full max-w-lg lg:max-w-xs">
                                     <label for="search" class="sr-only">Search</label>
                                     <div class="relative">
-                                        <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
-                                            <svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                                <path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd"></path>
+                                        <div
+                                            class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+                                            <svg class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor"
+                                                aria-hidden="true">
+                                                <path fill-rule="evenodd"
+                                                    d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0 1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z"
+                                                    clip-rule="evenodd"></path>
                                             </svg>
                                         </div>
-                                        <input id="search-input" type="text" class="block w-full rounded-md border-0 bg-white py-2 pl-10 pr-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" placeholder="Search for products...">
-                                        <div id="dropdown-menu" class="absolute z-10 mt-1 w-full bg-white border border-gray-300 shadow-lg rounded-lg hidden">
+                                        <input id="search-input" type="text"
+                                            class="block w-full rounded-md border-0 bg-white py-2 pl-10 pr-3 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                                            placeholder="Search for products...">
+                                        <div id="dropdown-menu"
+                                            class="absolute z-10 mt-1 w-full bg-white border border-gray-300 shadow-lg rounded-lg hidden">
                                             <div id="dropdown-items" class="py-2"></div>
                                         </div>
                                     </div>
@@ -146,7 +156,7 @@
                                 const searchInput = document.getElementById('search-input');
                                 const dropdownMenu = document.getElementById('dropdown-menu');
                                 const dropdownItems = document.getElementById('dropdown-items');
-                            
+
                                 async function fetchProducts(query) {
                                     try {
                                         const response = await fetch(`/api/resource/products?search=${encodeURIComponent(query)}`);
@@ -161,7 +171,7 @@
                                         return [];
                                     }
                                 }
-                            
+
                                 function updateDropdown(products) {
                                     dropdownItems.innerHTML = '';
                                     if (products.length > 0) {
@@ -181,7 +191,7 @@
                                         dropdownItems.appendChild(noResults);
                                     }
                                 }
-                            
+
                                 let debounceTimer;
                                 searchInput.addEventListener('input', () => {
                                     clearTimeout(debounceTimer);
@@ -198,7 +208,7 @@
                                         }
                                     }, 300); // 300ms delay
                                 });
-                            
+
                                 window.addEventListener('click', (e) => {
                                     if (!searchInput.contains(e.target) && !dropdownMenu.contains(e.target)) {
                                         dropdownMenu.style.display = 'none';
@@ -215,15 +225,17 @@
                                     <span class="sr-only">Open main menu</span>
                                     <svg x-description="Icon when menu is closed." x-state:on="Menu open"
                                         x-state:off="Menu closed" class="block h-8 w-8 font-bold"
-                                        :class="{ 'hidden': open, 'block': !(open) }" fill="none" viewBox="0 0 24 24"
-                                        stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                        :class="{ 'hidden': open, 'block': !(open) }" fill="none"
+                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                        aria-hidden="true">
                                         <path stroke-linecap="round" stroke-linejoin="round"
                                             d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
                                     </svg>
                                     <svg x-description="Icon when menu is open." x-state:on="Menu open"
                                         x-state:off="Menu closed" class="hidden h-6 w-6"
-                                        :class="{ 'block': open, 'hidden': !(open) }" fill="none" viewBox="0 0 24 24"
-                                        stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                        :class="{ 'block': open, 'hidden': !(open) }" fill="none"
+                                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                                        aria-hidden="true">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12">
                                         </path>
                                     </svg>
@@ -231,7 +243,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                 </div>
 
 

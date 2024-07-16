@@ -3,8 +3,7 @@
 @section('content')
     <div class="bg-white">
         <div aria-hidden="true" class="relative">
-            <img src="img/service/calibration/landing-page.jpg" alt=""
-                class="h-96 w-full object-cover object-center">
+            <img src="img/service/calibration/landing-page.jpg" alt="" class="h-96 w-full object-cover object-center">
             <div class="absolute inset-0 bg-gradient-to-t from-white"></div>
         </div>
 
@@ -36,23 +35,30 @@
 
                 <article
                     class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80">
-                    <video width="640" height="360" controls class="absolute inset-0 -z-10 h-full w-full object-cover">
+                    {{-- <video width="640" height="360" controls class="absolute inset-0 -z-10 h-full w-full object-cover">
                         <source src="img/service/calibration/calibration-1.mp4" type="video/mp4"
                             class="absolute inset-0 -z-10 h-full w-full object-cover">
                         Your browser does not support the video tag.
-                    </video>
+                    </video> --}}
+                    <iframe width="640" height="360" class="absolute inset-0 -z-10 h-full w-full object-cover"
+                        src="https://youtube.com/embed/Nr6aLGO0bpk" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin">
+                    </iframe>
                     <h3 class="mt-3 text-lg font-semibold leading-6 text-white">Kalibrasi Flow Meter
-                  </h3>
+                    </h3>
                 </article>
                 <article
                     class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80">
-                    <video width="640" height="360" controls class="absolute inset-0 -z-10 h-full w-full object-cover">
-                      <source src="img/service/calibration/calibration-2.mp4" type="video/mp4"
-                          class="absolute inset-0 -z-10 h-full w-full object-cover">
-                      Your browser does not support the video tag.
-                  </video>
-                  <h3 class="mt-3 text-lg font-semibold leading-6 text-white">Kalibrasi Flow Meter
-                </h3>
+                    <iframe width="640" height="360" class="absolute inset-0 -z-10 h-full w-full object-cover"
+                        src="https://youtube.com/embed/XJDoWB8omQ0?si=khN7F7MD7TbE-WFa" title="YouTube video player"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin">
+                    </iframe>
+                    <h3 class="mt-3 text-lg font-semibold leading-6 text-white">Kalibrasi Flow Meter
+                    </h3>
                 </article>
 
             </div>
