@@ -117,7 +117,7 @@
                                     </a>
                                 </div>
                                 <div class="hidden lg:ml-6 lg:flex lg:space-x-8">
-                                    <a href="/" class="flex items-center text-base font-bold text-white">Company</a>
+                                    <a href="/" class="flex items-center text-base font-bold text-white">Home</a>
                                     <a href="/product"
                                         class="flex items-center text-base font-bold text-white">Product</a>
                                     <a href="/katalog"
