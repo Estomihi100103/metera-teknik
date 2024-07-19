@@ -129,13 +129,13 @@
                             <div class="text-center sm:flex sm:text-left lg:block lg:text-center">
                                 <div class="sm:flex-shrink-0">
                                     <div class="flow-root rounded-2xl bg-gray-100 py-10">
-                                        <a href="/calibration">
+                                        <div href="/calibration">
                                             <img class="mx-auto h-28 w-28 rounded-2xl md:h-42 md:w-42"
                                                 src="img/kalibrasi.png">
                                             <div class="mt-3 sm:ml-3 sm:mt-0 lg:ml-0 lg:mt-3">
                                                 <h3 class="text-2xl font-bold text-gray-900">Kalibrasi</h3>
                                             </div>
-                                        </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
