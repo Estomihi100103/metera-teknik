@@ -7,7 +7,7 @@
         <div class="carousel-item absolute opacity-0 bg-cover bg-right" style="height:500px;">
             <div class="relative overflow-hidden rounded-lg">
                 <div class="absolute inset-0">
-                    <img src="/img/industri 2_zon.jpg" alt="" class="h-full w-full object-cover object-center">
+                    <img src="/img/industri 2_zon.jpg" alt="Industri Teknik dan Flow Meter" class="h-full w-full object-cover object-center">
                 </div>
                 <div class="relative bg-gray-900 bg-opacity-75 px-6 py-32 sm:px-12 sm:py-40 lg:px-16">
                     <div class="relative mx-auto flex max-w-3xl flex-col items-center text-center" style="height: 300px">
@@ -36,7 +36,7 @@
             <div class="absolute inset-0 bg-gradient-to-r from-gray-200 to-yellow-100 mix-blend-multiply"></div>
             <div class="relative overflow-hidden rounded-lg">
                 <div class="absolute inset-0">
-                    <img src="/img/hal dpn 1.jpg" alt="" class="h-full w-full object-cover object-center">
+                    <img src="/img/hal dpn 1.jpg" alt="Industri Teknik dan Flow Meter" class="h-full w-full object-cover object-center">
                 </div>
                 <div class="relative bg-gray-900 bg-opacity-75 px-6 py-32 sm:px-12 sm:py-40 lg:px-16">
                     <div class="relative mx-auto flex max-w-3xl flex-col items-center text-center" style="height: 300px">
@@ -62,7 +62,7 @@
         <div class="carousel-item absolute opacity-0" style="height:500px;">
             <div class="relative overflow-hidden rounded-lg">
                 <div class="absolute inset-0">
-                    <img src="/img/water meter.jpeg" alt="" class="h-full w-full object-cover object-center">
+                    <img src="/img/water meter.jpeg" alt="Industri Teknik dan Flow Meter" class="h-full w-full object-cover object-center">
                 </div>
                 <div class="relative bg-gray-900 bg-opacity-75 px-6 py-32 sm:px-12 sm:py-40 lg:px-16">
                     <div class="relative mx-auto flex max-w-3xl flex-col items-center text-center" style="height: 300px">

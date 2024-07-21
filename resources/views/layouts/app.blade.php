@@ -11,7 +11,7 @@
     <link rel="icon" href="/img/Logo.png" type="image/x-icon">
     <link rel="canonical" href="https://meterateknik.com">
 
-    <meta property="og:title" content="Distributor Flow Meter dan Alat Teknik Indonesia | Metera Teknik">
+    <meta property="og:title" content="Distributor Flow Meter ">
     <meta property="og:description"
         content="Penyedia terpercaya alat-alat industri seperti flowmeter, water meter, liquid control, nozzle tester, dan hydrometer di Indonesia.">
     <meta property="og:image" content="https://meterateknik.com/img/Logo.png">
@@ -35,20 +35,32 @@
         "name": "Metera Teknik",
         "url": "https://meterateknik.com",
         "logo": "https://meterateknik.com/img/Logo.png",
-        "description": "Distributor Flow Meter dan Pusat Perlengkapan Alat Teknik Indonesia"
+        "description": "Distributor Flow Meter dan Pusat Perlengkapan Alat Teknik Indonesia",
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+6285370194006",
+            "contactType": "Customer Service"
+          }
         }
     </script>
 
+
     <!-- Hotjar Tracking Code for http://meterateknik.com/ -->
     <script>
-        (function(h,o,t,j,a,r){
-            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-            h._hjSettings={hjid:5065018,hjsv:6};
-            a=o.getElementsByTagName('head')[0];
-            r=o.createElement('script');r.async=1;
-            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        (function(h, o, t, j, a, r) {
+            h.hj = h.hj || function() {
+                (h.hj.q = h.hj.q || []).push(arguments)
+            };
+            h._hjSettings = {
+                hjid: 5065018,
+                hjsv: 6
+            };
+            a = o.getElementsByTagName('head')[0];
+            r = o.createElement('script');
+            r.async = 1;
+            r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
             a.appendChild(r);
-        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+        })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
     </script>
 
 
@@ -137,7 +149,8 @@
                                         class="flex items-center text-base font-bold text-white">Katalog</a>
                                     <a href="/contact"
                                         class="flex items-center text-base font-bold text-white">Contact</a>
-                                    <a href="/calibration" class="flex items-center text-base font-bold text-white">Service &
+                                    <a href="/calibration"
+                                        class="flex items-center text-base font-bold text-white">Service &
                                         Kalibrasi</a>
 
                                 </div>
