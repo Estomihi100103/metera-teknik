@@ -11,13 +11,13 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
-        $title = 'Kategori Alat Ukur: Liquid Control, Flow Meter, Water Meter, Level Sensor, Transmitter';
+        $title ="Supplier Flow Meter";
         return view('category.index', compact('categories', 'title'));
     }
 
     public function show(Category $category)
     {
-        $title = 'Category';
+        $title = 'Distributor ' . $category->name;
         //ambil produk yang memiliki kategori yang sama dengan kategori saat ini
         $isproducts = $category->products;
         //ambil semua kategori

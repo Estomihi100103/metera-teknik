@@ -5,7 +5,7 @@
     <div class="bg-white" id="product-list">
         <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
             <header class="text-center">
-                <h1 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">Produk Terbaru</h1>
+                <h1 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">Flow Meter dan Alat Teknik Industri</h1>
                 <p class="mt-1 text-4xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-6xl">
                     Koleksi Terkini
                 </p>
@@ -14,8 +14,6 @@
             </header>
 
             <section aria-labelledby="featured-products" class="px-4 py-8 sm:px-4 sm:py-12 lg:max-w-7xl lg:px-4">
-                <h2 id="featured-products" class="text-2xl font-bold tracking-tight text-gray-900">Produk Pilihan</h2>
-
                 <ul class="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                     @foreach ($products as $product)
                         <li class="group relative">
@@ -34,11 +32,11 @@
                                     @endif
                                 </div>
                                 <div class="mt-4 flex justify-between">
-                                    <h3 class="text-lg text-gray-700 font-bold">
+                                    <h2 class="text-lg text-gray-700 font-bold">
                                         <a href="/product/{{ $product->slug }}">
                                             {{ $product->product_name }}
                                         </a>
-                                    </h3>
+                                    </h2>
                                     <p class="text-sm text-gray-500">{{ $product->category->name }}</p>
                                 </div>
                                 <div class="mt-6">

@@ -35,8 +35,10 @@ class ProductResource extends Resource
             ->schema([
                 Forms\Components\Card::make([
                     Forms\Components\TextInput::make('product_name')
-                        ->label('Nama Produk')
+                        ->label('Judul')
                         ->required()->required()->unique(ignorable: fn ($record) => $record),
+                    Forms\Components\TextInput::make('katalog')
+                        ->label('Nama Produk'),
                     Forms\Components\TextInput::make('slug')
                         ->label('Slug')
                         ->required()->unique(ignorable: fn ($record) => $record),
@@ -56,10 +58,8 @@ class ProductResource extends Resource
                         ->label('Image'),
                     RichEditor::make('deskripsi'),
                     RichEditor::make('spesipikasi'),
-                    // Forms\Components\TextInput::make('katalog')
-                    //     ->label('Katalog'),
                     Forms\Components\Textarea::make('varian')
-                        ->label('Varian'),
+                        ->label('Informasi Produk')->placeholder('Masukkan pengertian produk'),
                     Forms\Components\FileUpload::make('video')
                         ->label('Video'),
                 ]),
@@ -115,6 +115,4 @@ class ProductResource extends Resource
             'edit' => Pages\EditProduct::route('/{record}/edit'),
         ];
     }
-
-
 }

@@ -7,7 +7,7 @@
     <script src="/js/alpinejs.js"></script>
     <title>{{ $title }}</title>
     <meta name="description"
-        content="Metera Teknik: Distributor Flow Meter dan Alat Teknik Indonesia| liquid control, flowmeter, water meter,  nozzle tester, hydrometer">
+        content="Metera Teknik Indonesia: Distributor resmi Flow Meter dan Alat Teknik di Indonesia">
     <link rel="icon" href="/img/Logo.png" type="image/x-icon">
     <link rel="canonical" href="https://meterateknik.com">
 
@@ -26,7 +26,8 @@
     <meta name="twitter:image" content="https://meterateknik.com/img/Logo.png">
     <meta name="twitter:url" content="https://meterateknik.com">
 
-    {{-- <meta name="google-site-verification" content="gh4HPYYiQ_5mAnPOopRU5lus4K8BU0h6KuJ5kuKlYqQ" /> --}}
+    <!-- Google Search Console Verification -->
+    <meta name="google-site-verification" content="gh4HPYYiQ_5mAnPOopRU5lus4K8BU0h6KuJ5kuKlYqQ" />
     <!-- Schema Markup -->
     <script type="application/ld+json">
         {

@@ -11,7 +11,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::with('category')->latest()->get();
-        $title = 'Produk | Liquid Control, Flow Meter, Water Meter, Level Sensor, Transmitter';
+        $title = 'Produk | Tokico, LC Meter, SHM Meter, Fill Rite';
         return view('product.index', compact('products', 'title'));
     }
 

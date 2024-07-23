@@ -3,7 +3,7 @@
 @section('content')
     <div class="bg-white">
         <div aria-hidden="true" class="relative">
-            <img src="img/service/calibration/landing-page.jpg" alt="" class="h-96 w-full object-cover object-center">
+            <img src="https://res.cloudinary.com/dz2kni4c2/image/upload/v1721719470/crystal-kwok-XUEdfpPIhXg-unsplash_1_xwnxyp.jpg" alt="" class="h-96 w-full object-cover object-center">
             <div class="absolute inset-0 bg-gradient-to-t from-white"></div>
         </div>
 
@@ -25,7 +25,7 @@
                 class="mx-auto mt-16 grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3 mb-20">
                 <article
                     class="relative isolate flex flex-col justify-end overflow-hidden rounded-2xl bg-gray-900 px-8 pb-8 pt-80 sm:pt-48 lg:pt-80">
-                    <img src="img/service/calibration/landing-page.jpg" alt=""
+                    <img src="https://res.cloudinary.com/dz2kni4c2/image/upload/v1721719470/crystal-kwok-XUEdfpPIhXg-unsplash_1_xwnxyp.jpg" alt=""
                         class="absolute inset-0 -z-10 h-full w-full object-cover">
                     <div class="absolute inset-0 -z-10 bg-gradient-to-t from-gray-900 via-gray-900/40"></div>
                     <div class="absolute inset-0 -z-10 rounded-2xl ring-1 ring-inset ring-gray-900/10"></div>

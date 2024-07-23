@@ -63,10 +63,10 @@
                     <h2 id="services-heading" class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
                         Layanan Kami
                     </h2>
-                    <p class="mt-3 text-xl text-white">Kami adalah perusahaan Distributor alat-alat industri seperti flow
+                    <h3 class="mt-3 text-xl text-white">Kami adalah perusahaan distributor alat-alat industri seperti flow
                         meter dan water meter. Produk kami digunakan untuk mengukur berbagai jenis cairan, mulai dari gas,
                         minyak, air hingga zat kimia korosif. Dengan keandalan dan akurasi, kami melayani berbagai sektor
-                        industri di Indonesia.</p>
+                        industri di Indonesia.</h3>
                     <a href="/contact#contact-section"
                         class="mt-8 block w-full rounded-md border border-transparent bg-white px-8 py-3 text-base font-medium text-gray-900 hover:bg-gray-100 sm:w-auto">
                         Pusat Layanan
@@ -128,7 +128,7 @@
                             <div class="text-center sm:flex sm:text-left lg:block lg:text-center">
                                 <div class="sm:flex-shrink-0">
                                     <div class="flow-root rounded-2xl bg-gray-100 py-10">
-                                        <img class="mx-auto h-28 w-28 rounded-2xl md:h-42 md:w-42" src="img/kalibrasi.png"
+                                        <img class="mx-auto h-28 w-28 rounded-2xl md:h-42 md:w-42" src="https://res.cloudinary.com/dz2kni4c2/image/upload/v1721667256/kalibrasi_vl65ae.jpg"
                                             alt="Kalibrasi">
                                         <div class="mt-3 sm:ml-3 sm:mt-0 lg:ml-0 lg:mt-3">
                                             <h3 class="text-2xl font-bold text-gray-900">Kalibrasi</h3>
@@ -140,7 +140,7 @@
                                 <div class="sm:flex-shrink-0">
                                     <div class="flow-root rounded-2xl bg-gray-100 py-10">
                                         <img class="mx-auto h-28 w-28 rounded-2xl md:h-42 md:w-42"
-                                            src="img/pemeliharaan.jpg" alt="Pemeliharaan">
+                                            src="https://res.cloudinary.com/dz2kni4c2/image/upload/v1721717528/pemeliharaan_zmkmhz.jpg" alt="Pemeliharaan">
                                         <div class="mt-3 sm:ml-3 sm:mt-0 lg:ml-0 lg:mt-3">
                                             <h3 class="text-2xl font-bold text-gray-900">Pemeliharaan</h3>
                                         </div>
@@ -150,7 +150,7 @@
                             <div class="text-center sm:flex sm:text-left lg:block lg:text-center">
                                 <div class="sm:flex-shrink-0">
                                     <div class="flow-root rounded-2xl bg-gray-100 py-10">
-                                        <img class="mx-auto h-28 w-28 rounded-2xl md:h-42 md:w-42" src="img/perbaikan.jpg"
+                                        <img class="mx-auto h-28 w-28 rounded-2xl md:h-42 md:w-42" src="https://res.cloudinary.com/dz2kni4c2/image/upload/v1721717613/perbaikan_iswidm.jpg"
                                             alt="Perbaikan">
                                         <div class="mt-3 sm:ml-3 sm:mt-0 lg:ml-0 lg:mt-3">
                                             <h3 class="text-2xl font-bold text-gray-900">Perbaikan</h3>
@@ -170,7 +170,7 @@
     <section aria-labelledby="project-heading" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="relative overflow-hidden rounded-lg">
             <div class="absolute inset-0">
-                <img src="img/lc.jpg" alt="Project background" class="h-full object-cover object-center">
+                <img src="https://res.cloudinary.com/dz2kni4c2/image/upload/v1721722058/lc_ix3ekg.jpg" alt="Project background" class="h-full object-cover object-center">
             </div>
             <div class="relative bg-gray-900 bg-opacity-75 px-6 py-32 sm:px-12 sm:py-40 lg:px-16">
                 <div class="relative mx-auto flex max-w-3xl flex-col items-center text-center">

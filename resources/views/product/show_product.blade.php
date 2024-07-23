@@ -11,16 +11,17 @@
                     <h1 class="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">{{ $product->product_name }}</h1>
                 </header>
                 <section aria-labelledby="product-information" class="mt-4">
-                    <h2 id="product-information" class="sr-only">Informasi Produk</h2>
+                    <p id="product-information" class="sr-only">Informasi Produk</p>
                     <div class="mt-5">
-                        <h3 class="text-lg font-medium text-gray-900">Deskripsi Produk</h3>
-                        <div class="mt-2 space-y-6">
+                        <p class="text-lg font-medium text-gray-900">Deskripsi Produk</p>
+
+                        <div class="mt-2 space-y-1">
                             <p class="text-base text-gray-500">{!! $product->deskripsi !!}</p>
                         </div>
                     </div>
                     <div class="mt-5">
                         <h3 class="text-lg font-medium text-gray-900">Spesifikasi Produk</h3>
-                        <div class="mt-2 space-y-6">
+                        <div class="mt-2 space-y-2">
                             <p class="text-base text-gray-500">{!! $product->spesipikasi !!}</p>
                         </div>
                     </div>
@@ -46,6 +47,12 @@
                         <img src="https://tailwindui.com/img/ecommerce-images/product-page-04-featured-product-shot.jpg"
                             alt="{{ $product->product_name }}" class="h-full w-full object-cover object-center">
                     @endif
+                    <div class="mt-2">
+                        <h2 class="text-xl font-bold tracking-tight text-gray-900">{{ $product->katalog }}</h2>
+                    </div>
+                    <div class="mt-2 text-base text-gray-700">
+                        <p>{{ $product->varian }}</p>
+                    </div>
                 </figure>
             </div>
 

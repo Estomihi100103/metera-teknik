@@ -11,7 +11,7 @@
             @php
                 $latestGallery = $galeries->first();
             @endphp
-            <section aria-labelledby="featured-project" class="relative mt-10 overflow-hidden rounded-lg lg:h-96">
+            <section aria-labelledby="featured-project" class="relative overflow-hidden rounded-lg lg:h-96">
                 <div class="absolute inset-0">
                     <img src="{{ asset('storage/' . $latestGallery->image) }}" alt="{{ $latestGallery->judul }}" class="h-full w-full object-cover object-center">
                 </div>

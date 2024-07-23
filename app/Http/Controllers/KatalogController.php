@@ -10,7 +10,7 @@ class KatalogController extends Controller
 {
     public function index()
     {
-        $title = 'Katalog Produk | Liquid Control, Flow Meter, Water Meter, Level Sensor, Transmitter';
+        $title = 'Katalog Flow Meter';
         $pdfs = \App\Models\Pdf::latest()->get();
         $categories = Category::withCount('products')->with('products')->get();        
   
