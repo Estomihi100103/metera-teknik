@@ -6,7 +6,7 @@
         <div class="relative mt-2 rounded-md shadow-sm">
             <input type="text" name="" id="search"
                 class="block w-full rounded-full border-0 px-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                placeholder="Search category">
+                placeholder="Look for what you want">
 
             <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
@@ -16,15 +16,10 @@
                 </svg>
             </div>
         </div>
-        <div class="mt-5">
-            <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Kategori
-            </h1>
-        </div>
-
         <section aria-labelledby="information-heading" class="mt-4">
             <table class="min-w-full divide-y divide-gray-300">
                 <tbody id="categoryList" class="bg-white divide-y divide-gray-200">
-                    @foreach ($categories as $category)
+                    @foreach ($brands as $brand)
                         <tr>
                             <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-3">
                                 <div x-data="{ open: false }">
@@ -32,13 +27,13 @@
                                         class="hover:bg-gray-50 flex items-center w-full text-left rounded-md p-2 gap-x-3 text-sm leading-6 font-semibold text-gray-700"
                                         aria-controls="sub-menu-2" @click="open = !open" aria-expanded="false"
                                         x-bind:aria-expanded="open.toString()">
-                                        <a href="/category/{{ $category->slug }}">
+                                        <a href="/category/{{ $brand->slug }}">
                                             <span
                                                 class="whitespace-nowrap rounded-full bg-white -ml-5 mr-2 px-2 py-0.5 text-center text-xs font-medium leading-5 text-gray-600 ring-1 ring-inset ring-gray-200">
-                                                {{ $category->products_count }}
+                                                {{ $brand->products_count }}
                                             </span>
                                         </a>
-                                        {{ $category->name }}
+                                        {{ $brand->name }}
                                         <svg class="ml-auto h-5 w-5 shrink-0 text-gray-400" x-state:on="Expanded"
                                             x-state:off="Collapsed"
                                             :class="{ 'rotate-90 text-gray-500': open, 'text-gray-400': !(open) }"
@@ -50,8 +45,8 @@
                                     </button>
                                     <ul x-description="Expandable link section, show/hide based on state."
                                         class="mt-1 px-2" id="sub-menu-2" x-show="open" style="display: none;">
-                                        @foreach ($category->products as $product)
-                                            <li class=" list-disc">
+                                        @foreach ($brand->products as $product)
+                                            <li class="list-disc">
                                                 <a href="/product/{{ $product->slug }}"
                                                     class="hover:bg-gray-50 block rounded-md py-2 pr-2 pl-9 text-sm leading-6 text-gray-700">
                                                     {{ $product->product_name }} </a>
@@ -69,7 +64,7 @@
 
 
     <!-- Product image -->
-    <div class="lg:row-span-2 lg:mt-0 ">
+    <div class="lg:row-span-2 lg:mt-0">
         <div class="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg">
             <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
                 @foreach ($isproducts as $isproduct)
@@ -89,15 +84,15 @@
                             </a>
                         </div>
                         <div class="mt-4 flex justify-between">
-                            <p class="text-sm text-gray-700 font-bold">
+                            <h3 class="text-sm text-gray-700 font-bold">
                                 <a href="/product/{{ $isproduct->slug }}">
                                     {{ $isproduct->product_name }}
                                 </a>
-                            </p>
-                            <div class="">
+                            </h3>
+                            {{-- <div>
                                 <a href="/category/{{ $isproduct->category->name }}"
                                     class="mt-1 text-sm text-gray-500">{{ $isproduct->category->name }}</a>
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="mt-6">
                             <a href="/product/{{ $isproduct->slug }}"
@@ -110,8 +105,6 @@
         </div>
     </div>
 </div>
-
-
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {

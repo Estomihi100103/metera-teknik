@@ -12,11 +12,15 @@ class HomeController extends Controller
     {
         $categories = Category::latest()->take(5)->get();
         $products = Product::latest()->take(3)->get();
-        $title = 'Distributor Flow Meter';
+        $meta_title = 'Distributor Flow Meter';
+        $meta_description = 'Distributor Flow Meter dan Alat Teknik Industri';
+        $meta_keywords = 'Flow Meter, Alat Teknik Industri';
         return view('home')->with([
             'categories' => $categories,
             'products' => $products,
-            'title' => $title  
+            'meta_title' => $meta_title,
+            'meta_description' => $meta_description,
+            'meta_keywords' => $meta_keywords
         ]);
     }
 
@@ -26,8 +30,10 @@ class HomeController extends Controller
         $products = Product::where('product_name', 'LIKE', "%$query%")
             ->orWhere('deskripsi', 'LIKE', "%$query%")
             ->get();
-        $title = 'Search Product';
-        return view('product.results-search', compact('products', 'title'));
+        $meta_title = 'Search Product';
+        $meta_description = 'Carilah produk yang dibutuhkan oleh perusahaan Anda.'; 
+        $meta_keywords = 'Search Product';
+        return view('product.results-search', compact('products', 'meta_title', 'meta_description', 'meta_keywords'));
     }
 
     public function autocomplete(Request $request)
@@ -37,7 +43,7 @@ class HomeController extends Controller
             ->orWhere('deskripsi', 'LIKE', "%$query%")
             ->limit(10)
             ->get(['id', 'product_name', 'slug']);
-        
+
         return response()->json($products);
     }
 
@@ -46,8 +52,10 @@ class HomeController extends Controller
 
     public function contactUs()
     {
-        $title = 'Metera Teknik Indonesia';
-        return view('contactUs.index', compact('title'));
-    }
+        $meta_title = 'Metera Teknik Indonesia';
+        $meta_description = 'Kontak kami untuk informasi lebih lanjut.';
+        $meta_keywords = 'Kontak Metera Teknik Indonesia';
 
+        return view('contactUs.index', compact('meta_title', 'meta_description', 'meta_keywords'));
+    }
 }

@@ -26,7 +26,7 @@
                                 TELEPON : 021-6585-1996
                             </li> --}}
                             <li class="text-sm text-gray-300 hover:text-white">
-                                Email : meterateknik@gmail.com  salesmeterateknik@gmail.com 
+                                Email : meterateknik@gmail.com  
                             </li>
                             <li class="text-sm text-gray-300 hover:text-white">
                                 Address : Jl. Angkasa No.06 Blok B10 Gunung Sahari Selatan Central Jakarta 10610 GEDUNG
@@ -62,7 +62,7 @@
         </div>
 
         <div class="border-t border-gray-800 py-10">
-            <p class="text-sm text-gray-400">Copyright © 2024 Metera Teknik, Inc.</p>
+            <p class="text-sm text-gray-400">Copyright © 2024 Metera Teknik Indonesia, Inc.</p>
         </div>
     </div>
 </footer>

@@ -8,21 +8,15 @@ use Illuminate\View\Component;
 
 class ShowProduct extends Component
 {
-    /**
-     * Create a new component instance.
-     */
     public $isproducts;
-    
-    public $categories;
-    public function __construct($isproducts, $category)  //parameter yang dikirim dari   <x-show-product :isproducts="$isproducts" :category="$categories" />
+    public $brands;
 
+    public function __construct($isproducts, $brands)
     {
         $this->isproducts = $isproducts;
-        $this->categories = $category;
-
-        // pake ini nanti kita panggil di view (  $this->categories) mosalnya nanti  $categories->name
+        $this->brands = $brands;
     }
-    
+
     public function render(): View|Closure|string
     {
         return view('components.show-product');

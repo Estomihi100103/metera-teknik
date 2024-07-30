@@ -45,6 +45,12 @@ class CategorisResource extends Resource
                         ->label('Image')
                         ->image()
                         ->required(), 
+                    //meta_title
+                    TextInput::make('meta_title')
+                        ->label('Meta Title'),
+                    //meta_description
+                    Textarea::make('meta_description')
+                        ->label('Meta Description'),
                 ]),
             ]);
     }

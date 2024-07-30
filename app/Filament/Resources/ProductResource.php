@@ -29,26 +29,23 @@ class ProductResource extends Resource
 
     public static function form(Form $form): Form
     {
-
-
         return $form
             ->schema([
                 Forms\Components\Card::make([
-                    Forms\Components\TextInput::make('product_name')
+                    Forms\Components\TextInput::make('title')
                         ->label('Judul')
                         ->required()->required()->unique(ignorable: fn ($record) => $record),
-                    Forms\Components\TextInput::make('katalog')
-                        ->label('Nama Produk'),
                     Forms\Components\TextInput::make('slug')
                         ->label('Slug')
                         ->required()->unique(ignorable: fn ($record) => $record),
+                    Forms\Components\TextInput::make('product_name')
+                        ->label('Nama Lengkap Produk'),
                     Forms\Components\Select::make('category_id')
-                        ->label('Category')
+                        ->label('Category Produk')
                         ->options(
                             \App\Models\Category::all()->pluck('name', 'id')->toArray()
                         )
                         ->required(),
-                    //brand
                     Forms\Components\Select::make('brand_id')
                         ->label('Brand')
                         ->options(
@@ -58,10 +55,23 @@ class ProductResource extends Resource
                         ->label('Image'),
                     RichEditor::make('deskripsi'),
                     RichEditor::make('spesipikasi'),
-                    Forms\Components\Textarea::make('varian')
-                        ->label('Informasi Produk')->placeholder('Masukkan pengertian produk'),
+
+                    //meta_title
+                    Forms\Components\TextInput::make('meta_title')
+                        ->label('Meta Title'),
+                    //meta_description
+                    Forms\Components\TextInput::make('meta_description')
+                        ->label('Meta Description'),
+                    //meta_keywords
+                    Forms\Components\TextInput::make('meta_keywords')
+                        ->label('Meta Keywords'),
+                    
+                    //additional_images
+                    Forms\Components\FileUpload::make('additional_images')
+                        ->label('Additional Images'),
                     Forms\Components\FileUpload::make('video')
                         ->label('Video'),
+                    
                 ]),
             ]);
     }
@@ -88,6 +98,7 @@ class ProductResource extends Resource
                     Filter::make('category_id')
                         ->label('Category')
                 ],
+                
             )
             ->actions([
                 Tables\Actions\EditAction::make(),

@@ -4,38 +4,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="/js/alpinejs.js"></script>
-    <title>{{ $title }}</title>
-    <meta name="description"
-        content="Metera Teknik Indonesia: Distributor resmi Flow Meter dan Alat Teknik di Indonesia">
+    <title>{{ $meta_title }}</title>
+    <meta name="description"content="{{ $meta_description }}">
+    <meta name="keywords" content="{{ $meta_keywords }}">
     <link rel="icon" href="/img/Logo.png" type="image/x-icon">
-    <link rel="canonical" href="https://meterateknik.com">
+    <link rel="canonical" href="https://meterateknikindonesia.com">
 
     <meta property="og:title" content="Distributor Flow Meter ">
-    <meta property="og:description"
-        content="Penyedia terpercaya alat-alat industri seperti flowmeter, water meter, liquid control, nozzle tester, dan hydrometer di Indonesia.">
-    <meta property="og:image" content="https://meterateknik.com/img/Logo.png">
-    <meta property="og:url" content="https://meterateknik.com">
+    <meta property="og:description" content="{{ $meta_description }}">
+    <meta property="og:image" content="https://meterateknikindonesia.com/img/Logo.png">
+    <meta property="og:url" content="https://meterateknikindonesia.com">
     <meta property="og:type" content="website">
 
     <!-- Twitter Card Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Distributor Flow Meter dan Alat Teknik Indonesia | Metera Teknik">
-    <meta name="twitter:description"
-        content="Penyedia terpercaya alat-alat industri seperti flowmeter, water meter, liquid control, nozzle tester, dan hydrometer di Indonesia.">
-    <meta name="twitter:image" content="https://meterateknik.com/img/Logo.png">
-    <meta name="twitter:url" content="https://meterateknik.com">
+    <meta name="twitter:title" content="{{ $meta_title }}">
+    <meta name="twitter:description" content="{{ $meta_description }}">
+    <meta name="twitter:image" content="https://meterateknikindonesia.com/img/Logo.png">
+    <meta name="twitter:url" content="https://meterateknikindonesia.com">
 
     <!-- Google Search Console Verification -->
     <meta name="google-site-verification" content="gh4HPYYiQ_5mAnPOopRU5lus4K8BU0h6KuJ5kuKlYqQ" />
     <!-- Schema Markup -->
+
+    <script src="/js/alpinejs.js" defer></script>
     <script type="application/ld+json">
         {
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "Metera Teknik",
-        "url": "https://meterateknik.com",
-        "logo": "https://meterateknik.com/img/Logo.png",
+        "url": "https://meterateknikindonesia.com",
+        "logo": "https://meterateknikindonesia.com/img/Logo.png",
         "description": "Distributor Flow Meter dan Pusat Perlengkapan Alat Teknik Indonesia",
         "contactPoint": {
             "@type": "ContactPoint",
@@ -44,26 +43,6 @@
           }
         }
     </script>
-
-
-    <!-- Hotjar Tracking Code for http://meterateknik.com/ -->
-    <script>
-        (function(h, o, t, j, a, r) {
-            h.hj = h.hj || function() {
-                (h.hj.q = h.hj.q || []).push(arguments)
-            };
-            h._hjSettings = {
-                hjid: 5065018,
-                hjsv: 6
-            };
-            a = o.getElementsByTagName('head')[0];
-            r = o.createElement('script');
-            r.async = 1;
-            r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
-            a.appendChild(r);
-        })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
-    </script>
-
 
     @vite(['resources/js/app.js'])
     @vite('resources/css/app.css')
@@ -100,8 +79,8 @@
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Metera Teknik",
-  "url": "https://meterateknik.com",
-  "logo": "https://meterateknik.com/img/Logo.png",
+  "url": "https://meterateknikindonesia.com",
+  "logo": "https://meterateknikindonesia.com/img/Logo.png",
   "description": "Distributor Flow Meter dan Pusat Perlengkapan Alat Teknik Indonesia"
 }
 </script>

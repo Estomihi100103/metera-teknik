@@ -10,12 +10,12 @@ class KatalogController extends Controller
 {
     public function index()
     {
-        $title = 'Katalog Flow Meter';
+        $meta_title = 'Katalog Flow Meter';
+        $meta_description = 'Katalog Flow Meter dan Alat Teknik Industri';
+        $meta_keywords = 'Flow Meter, Alat Teknik Industri';
         $pdfs = \App\Models\Pdf::latest()->get();
-        $categories = Category::withCount('products')->with('products')->get();        
-  
-        return view('katalog.index', compact('title', 'pdfs', 'categories'));
+        $categories = Category::withCount('products')->with('products')->get();
+
+        return view('katalog.index', compact('pdfs', 'categories', 'meta_title', 'meta_description', 'meta_keywords'));
     }
-
-
 }

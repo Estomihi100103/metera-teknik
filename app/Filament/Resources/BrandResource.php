@@ -37,10 +37,21 @@ class BrandResource extends Resource
                         ->label('Slug')
                         ->required()
                         ->unique(ignorable: fn ($record) => $record),
+                    //category_id
+                    Forms\Components\Select::make('category_id')
+                        ->label('Category')
+                        ->options(
+                            \App\Models\Category::all()->pluck('name', 'id')->toArray()
+                        ),
                     Forms\Components\RichEditor::make('description')
                         ->label('Description'),
-                    Forms\Components\FileUpload::make('logo')
+                    Forms\Components\FileUpload::make('image')
                         ->label('Logo'),
+                    Forms\Components\TextInput::make('meta_title')
+                        ->label('Meta Title'),
+                    Forms\Components\Textarea::make('meta_description')
+                        ->label('Meta Description'),
+
                 ]),
             ]);
     }

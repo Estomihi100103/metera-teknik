@@ -13,11 +13,17 @@ return new class extends Migration
     {
         Schema::create('brands', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
+            $table->timestamps();
+            $table->string('name');
             $table->string('slug')->unique();
             $table->text('description')->nullable();
-            $table->string('logo')->nullable();
-            $table->timestamps();
+            $table->string('image')->nullable();
+            $table->string('meta_title')->nullable();
+            $table->text('meta_description')->nullable();
+            $table->boolean('is_active')->default(true);
+            $table->softDeletes();
+
+            $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');
         });
     }
 

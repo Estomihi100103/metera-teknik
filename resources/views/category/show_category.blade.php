@@ -16,6 +16,6 @@
         </div>
     </div>
   
-    <x-show-product :isproducts="$isproducts" :category="$categories" />
+    <x-show-product :isproducts="$isproducts" :brands="$brands" />
 
 @endsection

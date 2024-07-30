@@ -17,7 +17,11 @@ return new class extends Migration
             $table->string('judul')->unique('judul')->nullable();
             $table->string('slug')->unique();
             $table->text('deskripsi')->nullable();
+            $table->string('meta_title')->nullable();
+            $table->text('meta_description')->nullable();
+            $table->boolean('is_active')->default(true);
             $table->string('image');
+            $table->softDeletes();
         });
     }
 
