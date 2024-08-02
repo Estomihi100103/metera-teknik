@@ -54,8 +54,8 @@ class ProductResource extends Resource
                         ),
                     Forms\Components\FileUpload::make('image')
                         ->label('Image'),
-                    MarkdownEditor::make('deskripsi'),
-                    MarkdownEditor::make('spesipikasi'),
+                        RichEditor::make('deskripsi'),
+                        RichEditor::make('spesipikasi'),
                     //meta_title
                     Forms\Components\TextInput::make('meta_title')
                         ->label('Meta Title'),
