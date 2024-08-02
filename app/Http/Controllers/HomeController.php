@@ -5,18 +5,19 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\Brand;
 
 class HomeController extends Controller
 {
     public function home()
     {
-        $categories = Category::latest()->take(5)->get();
+        $brands = Brand::latest()->take(5)->get();
         $products = Product::latest()->take(3)->get();
         $meta_title = 'Distributor Flow Meter';
         $meta_description = 'Distributor Flow Meter dan Alat Teknik Industri';
         $meta_keywords = 'Flow Meter, Alat Teknik Industri';
         return view('home')->with([
-            'categories' => $categories,
+            'brands' => $brands,
             'products' => $products,
             'meta_title' => $meta_title,
             'meta_description' => $meta_description,

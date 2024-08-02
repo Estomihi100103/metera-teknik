@@ -14,7 +14,7 @@ class GenerateSitemap extends Command
     public function handle()
     {
         // Base URL for your sitemap
-        $baseUrl = 'https://meterateknik.com';
+        $baseUrl = 'https://meterateknikindonesia.com';
 
         $sitemap = Sitemap::create();
 
@@ -43,7 +43,7 @@ class GenerateSitemap extends Command
             ->setLastModificationDate(now())
             ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
             ->setPriority(0.8));
-        
+
         $sitemap->add(Url::create($baseUrl . '/galery')
             ->setLastModificationDate(now())
             ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
@@ -53,12 +53,17 @@ class GenerateSitemap extends Command
             ->setLastModificationDate(now())
             ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
             ->setPriority(0.8));
-        
+
         $sitemap->add(Url::create($baseUrl . '/category')
             ->setLastModificationDate(now())
             ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
             ->setPriority(0.8));
-        
+
+        $sitemap->add(Url::create($baseUrl . '/brands')
+            ->setLastModificationDate(now())
+            ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
+            ->setPriority(0.8));
+
         $sitemap->add(Url::create($baseUrl . '/live-search')
             ->setLastModificationDate(now())
             ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
@@ -68,8 +73,13 @@ class GenerateSitemap extends Command
             ->setLastModificationDate(now())
             ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
             ->setPriority(0.8));
-        
+
         $sitemap->add(Url::create($baseUrl . '/category/{category:slug}')
+            ->setLastModificationDate(now())
+            ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
+            ->setPriority(0.8));
+
+        $sitemap->add(Url::create($baseUrl . '/brands/{brand:slug}')
             ->setLastModificationDate(now())
             ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
             ->setPriority(0.8));

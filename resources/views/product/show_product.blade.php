@@ -90,16 +90,8 @@
                     </figcaption>
                 </figure>
             </div>
-
-            <!-- Product options -->
-            <div class="mt-2 lg:col-start-1 lg:row-start-2 lg:max-w-lg lg:self-start">
-                <section aria-labelledby="product-options">
-                    <h2 id="product-options" class="sr-only">Opsi Produk</h2>
-                    <!-- Add your product options here -->
-                </section>
-            </div>
         </div>
-
+        
         <!-- Related products -->
         <section aria-labelledby="related-products">
             <h2 id="related-products" class="sr-only">Produk Terkait</h2>

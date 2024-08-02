@@ -27,7 +27,7 @@
                                         class="hover:bg-gray-50 flex items-center w-full text-left rounded-md p-2 gap-x-3 text-sm leading-6 font-semibold text-gray-700"
                                         aria-controls="sub-menu-2" @click="open = !open" aria-expanded="false"
                                         x-bind:aria-expanded="open.toString()">
-                                        <a href="/category/{{ $brand->slug }}">
+                                        <a href="/brands/{{ $brand->slug }}">
                                             <span
                                                 class="whitespace-nowrap rounded-full bg-white -ml-5 mr-2 px-2 py-0.5 text-center text-xs font-medium leading-5 text-gray-600 ring-1 ring-inset ring-gray-200">
                                                 {{ $brand->products_count }}

@@ -79,7 +79,7 @@
 
                                 </div>
                                 <address class="mt-3 space-y-1 text-base not-italic leading-6 text-gray-600 font-semibold">
-                                    <p>salesmeterateknik@gmail.com</p>
+                                    <p>meterateknik@gmail.com</p>
                                 </address>
                             </div>
                             <div class="rounded-2xl bg-gray-50 p-10">

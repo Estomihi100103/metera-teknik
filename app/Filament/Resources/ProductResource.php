@@ -14,6 +14,7 @@ use Filament\Tables\Filters\Filter;
 use Filament\Forms\Components\RichEditor;
 use App\Filament\Resources\ProductResource\Widgets\ProductsChart;
 use Filament\Notifications\Notification;
+use Filament\Forms\Components\MarkdownEditor;
 
 
 
@@ -53,9 +54,8 @@ class ProductResource extends Resource
                         ),
                     Forms\Components\FileUpload::make('image')
                         ->label('Image'),
-                    RichEditor::make('deskripsi'),
-                    RichEditor::make('spesipikasi'),
-
+                    MarkdownEditor::make('deskripsi'),
+                    MarkdownEditor::make('spesipikasi'),
                     //meta_title
                     Forms\Components\TextInput::make('meta_title')
                         ->label('Meta Title'),
@@ -65,13 +65,13 @@ class ProductResource extends Resource
                     //meta_keywords
                     Forms\Components\TextInput::make('meta_keywords')
                         ->label('Meta Keywords'),
-                    
+
                     //additional_images
                     Forms\Components\FileUpload::make('additional_images')
                         ->label('Additional Images'),
                     Forms\Components\FileUpload::make('video')
                         ->label('Video'),
-                    
+
                 ]),
             ]);
     }
@@ -98,7 +98,7 @@ class ProductResource extends Resource
                     Filter::make('category_id')
                         ->label('Category')
                 ],
-                
+
             )
             ->actions([
                 Tables\Actions\EditAction::make(),
