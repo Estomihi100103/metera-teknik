@@ -13,8 +13,8 @@ class HomeController extends Controller
     {
         $brands = Brand::latest()->take(5)->get();
         $products = Product::latest()->take(3)->get();
-        $meta_title = 'Distributor Flow Meter';
-        $meta_description = 'Distributor Flow Meter dan Alat Teknik Industri';
+        $meta_title = 'Distributor Flow Meter dan Alat Teknik Industri di Indonesia';
+        $meta_description = 'Metera Teknik Indonesia adalah Distributor Flow Meter dan Alat Alat Teknik Industri di Indonesia';
         $meta_keywords = 'Flow Meter, Alat Teknik Industri';
         return view('home')->with([
             'brands' => $brands,
@@ -53,9 +53,9 @@ class HomeController extends Controller
 
     public function contactUs()
     {
-        $meta_title = 'Metera Teknik Indonesia';
+        $meta_title = 'Kontak Metera Teknik Indonesia';
         $meta_description = 'Kontak kami untuk informasi lebih lanjut.';
-        $meta_keywords = 'Kontak Metera Teknik Indonesia';
+        $meta_keywords = 'Kontak Metera Teknik Indonesia, Kontak Metera Teknik';
 
         return view('contactUs.index', compact('meta_title', 'meta_description', 'meta_keywords'));
     }

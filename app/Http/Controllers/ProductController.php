@@ -13,8 +13,8 @@ class ProductController extends Controller
     {
         $products = Product::with('category')->get();
 
-        $meta_title = 'Produk | Distributor Alat Teknik Industri';
-        $meta_description = 'Distributor Flow Meter, Fill Rite, Strainer, Pompa Industri, Rocker, dan Alat Teknik Industri';
+        $meta_title = 'Produk Metera Teknik Indonesia';
+        $meta_description = 'Produk flow meter solar dan meteran air yang kami supplai beragam seperti halnya: flow meter digital, meteran air PDAM, meteran air digital, flow meter air dan jenis flow meter lainya';
         $meta_keywords = 'Flow Meter, Fill Rite, Strainer, Pompa Industri, Rocker, Alat Teknik Industri';
         return view('product.index2', compact('meta_title', 'products', 'meta_description', 'meta_keywords'));
     }

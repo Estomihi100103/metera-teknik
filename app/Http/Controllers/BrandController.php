@@ -22,7 +22,7 @@ class BrandController extends Controller
     {
         $meta_title = 'Distributor ' . $brand->meta_title;
         $meta_description = $brand->meta_description;
-        $meta_keywords = "Flow Meter, Rota Meter, Gas Detector MSA";
+        $meta_keywords = "Flow Meter, Rota Meter, Gas Detector MSA, Water Meter, Wire Mesh Stainles, Kobe, Alat Teknik Sipil, Liquid Control";
         $isproducts = $brand->products;
         //ambil semua kategori
         $brands = Brand::withCount('products')->with('products')->get();

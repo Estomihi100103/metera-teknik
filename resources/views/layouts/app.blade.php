@@ -8,6 +8,9 @@
     <meta name="description"content="{{ $meta_description }}">
     <meta name="keywords" content="{{ $meta_keywords }}">
     <link rel="icon" href="/img/Logo.png" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/Logo.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/Logo-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/Logo-16x16.png">
     <link rel="canonical" href="https://meterateknikindonesia.com">
 
     <meta property="og:title" content="Distributor Flow Meter ">
@@ -23,16 +26,14 @@
     <meta name="twitter:image" content="https://meterateknikindonesia.com/img/Logo.png">
     <meta name="twitter:url" content="https://meterateknikindonesia.com">
 
-    <!-- Google Search Console Verification -->
-    <meta name="google-site-verification" content="gh4HPYYiQ_5mAnPOopRU5lus4K8BU0h6KuJ5kuKlYqQ" />
-    <!-- Schema Markup -->
+
 
     <script src="/js/alpinejs.js" defer></script>
     <script type="application/ld+json">
         {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "Metera Teknik",
+        "name": "Metera Teknik Indonesia",
         "url": "https://meterateknikindonesia.com",
         "logo": "https://meterateknikindonesia.com/img/Logo.png",
         "description": "Distributor Flow Meter dan Pusat Perlengkapan Alat Teknik Indonesia",
@@ -78,7 +79,7 @@
 {
   "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "Metera Teknik",
+  "name": "Metera Teknik Indonesia",
   "url": "https://meterateknikindonesia.com",
   "logo": "https://meterateknikindonesia.com/img/Logo.png",
   "description": "Distributor Flow Meter dan Pusat Perlengkapan Alat Teknik Indonesia"

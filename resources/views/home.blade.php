@@ -2,9 +2,6 @@
 
 @section('content')
     @include('layouts.carousel')
-
-
-
     <!-- Category section -->
     <section aria-labelledby="category-heading" class="pt-24 sm:pt-32 xl:mx-auto xl:max-w-7xl xl:px-8">
         <div class="px-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8 xl:px-0">
@@ -62,8 +59,8 @@
                     <h2 id="services-heading" class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
                         Layanan Kami
                     </h2>
-                    <h3 class="mt-3 text-xl text-white">Kami adalah perusahaan distributor alat-alat industri seperti flow
-                        meter dan water meter. Produk kami digunakan untuk mengukur berbagai jenis cairan, mulai dari gas,
+                    <h3 class="mt-3 text-xl text-white">Metera Teknik Indonesia adalah perusahaan distributor alat-alat industri seperti flow
+                        meter, water meter dan alat teknik industri lainnya. Produk kami digunakan untuk mengukur berbagai jenis cairan, mulai dari gas,
                         minyak, air hingga zat kimia korosif. Dengan keandalan dan akurasi, kami melayani berbagai sektor
                         industri di Indonesia.</h3>
                     <a href="/contact#contact-section"
@@ -82,7 +79,7 @@
                     <div>
                         <h2 class="text-4xl font-bold tracking-tight text-gray-900">Other
                             service</h2>
-                        <p class="mt-4 text-gray-500 text-xl">Selain sebagai distributor, kami juga menyediakan berbagai
+                        <p class="mt-4 text-gray-500 text-xl">Selain sebagai distributor, Metera Teknik Indonesia juga menyediakan berbagai
                             layanan tambahan untuk memastikan semua perangkat berfungsi dengan optimal</p>
                     </div>
                     <div class="aspect-h-2 aspect-w-3 overflow-hidden rounded-lg bg-gray-100">
@@ -174,7 +171,7 @@
             <div class="relative bg-gray-900 bg-opacity-75 px-6 py-32 sm:px-12 sm:py-40 lg:px-16">
                 <div class="relative mx-auto flex max-w-3xl flex-col items-center text-center">
                     <h2 id="project-heading" class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Project</h2>
-                    <p class="mt-3 text-xl text-white">Metera Teknik dengan bangga telah menjadi mitra andal dalam melayani
+                    <p class="mt-3 text-xl text-white">Metera Teknik Indonesia dengan bangga telah menjadi mitra andal dalam melayani
                         berbagai perusahaan industri terkemuka di Indonesia. Kepercayaan ini tercapai berkat komitmen kami
                         terhadap kualitas dan keandalan produk.</p>
                     <a href="/galery"

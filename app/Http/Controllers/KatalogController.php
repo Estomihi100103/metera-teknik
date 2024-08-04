@@ -11,7 +11,7 @@ class KatalogController extends Controller
     public function index()
     {
         $meta_title = 'Katalog Flow Meter';
-        $meta_description = 'Katalog Flow Meter dan Alat Teknik Industri';
+        $meta_description = 'Kami menjual berbagai macam flow meter solar dan meteran air sesuai kebutuhan anda dan berbagai alat perlengkapn teknik ';
         $meta_keywords = 'Flow Meter, Alat Teknik Industri';
         $pdfs = \App\Models\Pdf::latest()->get();
         $categories = Category::withCount('products')->with('products')->get();
