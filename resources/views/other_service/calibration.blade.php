@@ -9,7 +9,7 @@
 
         <div class="relative mx-auto -mt-12 max-w-7xl px-4 pb-16 sm:px-6 sm:pb-24 lg:px-8">
             <div class="mx-auto max-w-2xl text-center lg:max-w-4xl">
-                <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Kalibrasi flow meter</h2>
+                <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Kalibrasi </h2>
                 <p class="mt-4 text-gray-500 text-lg">Di Metera Teknik Indonesia, Kami menawarkan layanan kalibrasi presisi
                     menggunakan Flowlab canggih dengan kapasitas hingga 6500 m3/jam. Fasilitas kami dapat menguji berbagai
                     instrumen meter, mulai dari 2″ G40 hingga 12″ G4000, termasuk METER TURBIN GAS, METER ROTARI, dan METER
@@ -19,7 +19,7 @@
         </div>
         <div class="mx-auto mt-32 max-w-7xl px-6 sm:mt-40 lg:px-8">
             <div class="mx-auto max-w-2xl lg:mx-0 lg:max-w-none">
-                <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Kalibrasi </h2>
+                <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Kalibrasi Flow Meter</h2>
             </div>
             <div
                 class="mx-auto mt-16 grid max-w-2xl auto-rows-fr grid-cols-1 gap-8 sm:mt-20 lg:mx-0 lg:max-w-none lg:grid-cols-3 mb-20">

@@ -92,11 +92,18 @@ class ProductResource extends Resource
                     ->label('Category')
                     ->sortable()
                     ->searchable(),
+                TextColumn::make('brand.name')
+                    ->label('Brand')
+                    ->sortable()
+                    ->searchable(),
             ])
             ->filters(
                 [
                     Filter::make('category_id')
-                        ->label('Category')
+                        ->label('Category'),
+                    //filter brand
+                    Filter::make('brand_id')
+                        ->label('Brand'),
                 ],
 
             )

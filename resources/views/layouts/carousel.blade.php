@@ -36,7 +36,7 @@
             <div class="absolute inset-0 bg-gradient-to-r from-gray-200 to-yellow-100 mix-blend-multiply"></div>
             <div class="relative overflow-hidden rounded-lg">
                 <div class="absolute inset-0">
-                    <img src="https://res.cloudinary.com/dz2kni4c2/image/upload/v1721719142/hal_dpn_1_mf0u6s.jpg" alt="Metera Teknik" class="h-full w-full object-cover object-center">
+                    <img src="https://res.cloudinary.com/dz2kni4c2/image/upload/v1723042678/Business_lmulyc.jpg" alt="Metera Teknik Indonesia" class="h-full w-full object-cover object-center">
                 </div>
                 <div class="relative bg-gray-900 bg-opacity-75 px-6 py-32 sm:px-12 sm:py-40 lg:px-16">
                     <div class="relative mx-auto flex max-w-3xl flex-col items-center text-center" style="height: 300px">

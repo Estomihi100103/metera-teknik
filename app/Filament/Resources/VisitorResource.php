@@ -34,6 +34,11 @@ class VisitorResource extends Resource
     {
         return $table
         ->columns([
+            //id
+            TextColumn::make('id')
+                ->label('ID')
+                ->sortable()
+                ->searchable(),
             TextColumn::make('ip_address')
                 ->label('IP Address')
                 ->sortable()
