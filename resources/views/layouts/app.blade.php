@@ -119,7 +119,7 @@
                             <div class="flex px-2 lg:px-0">
                                 <div class="flex flex-shrink-0 items-center mt-2">
                                     <a href="/">
-                                        <img class="h-16 md:h-28 w-auto" src="/img/Logo.png" alt="Your Company">
+                                        <img class="h-16 md:h-28 w-auto" src="/img/Logo.png" alt="Metera Teknik Indonesia">
                                     </a>
                                 </div>
                                 <div class="hidden lg:ml-6 lg:flex lg:space-x-8">

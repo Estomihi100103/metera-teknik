@@ -12,7 +12,7 @@
                             <h2 class="text-3xl font-bold tracking-tight text-gray-900">Locations</h2>
                             <div>
                                 <div class="mt-10">
-                                    <img src="img/Logo.png" alt=""
+                                    <img src="img/Logo.png" alt="Metera Teknik Indonesia"
                                         class="fill-current text-blue-500 md:w-72 md:h-72 w-32 h-32">
                                 </div>
                                 <div class="">

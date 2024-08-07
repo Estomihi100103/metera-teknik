@@ -67,7 +67,7 @@
                 <div class="mt-10 lg:col-start-2 lg:row-span-2 lg:mt-0">
                     <div class="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg">
                         <img src="{{ asset('storage/' . $brand->image) }}"
-                            alt="Model wearing light green backpack with black canvas straps and front zipper pouch."
+                            alt="{{ $brand->name }}"
                             class="h-full w-full object-cover object-center">
                     </div>
                 </div>

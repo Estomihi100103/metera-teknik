@@ -36,9 +36,10 @@ class ProductResource extends Resource
                     Forms\Components\TextInput::make('title')
                         ->label('Judul')
                         ->required()->required()->unique(ignorable: fn ($record) => $record),
-                    Forms\Components\TextInput::make('slug')
-                        ->label('Slug')
-                        ->required()->unique(ignorable: fn ($record) => $record),
+                    // Forms\Components\TextInput::make('slug')
+                    //     ->label('Slug')
+                    //     ->disabled(),
+                        
                     Forms\Components\TextInput::make('product_name')
                         ->label('Nama Lengkap Produk'),
                     Forms\Components\Select::make('category_id')
@@ -54,8 +55,8 @@ class ProductResource extends Resource
                         ),
                     Forms\Components\FileUpload::make('image')
                         ->label('Image'),
-                        RichEditor::make('deskripsi'),
-                        RichEditor::make('spesipikasi'),
+                    RichEditor::make('deskripsi'),
+                    RichEditor::make('spesipikasi'),
                     //meta_title
                     Forms\Components\TextInput::make('meta_title')
                         ->label('Meta Title'),

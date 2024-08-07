@@ -166,7 +166,7 @@
     <section aria-labelledby="project-heading" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div class="relative overflow-hidden rounded-lg">
             <div class="absolute inset-0">
-                <img src="https://res.cloudinary.com/dz2kni4c2/image/upload/v1721722058/lc_ix3ekg.jpg" alt="Project background" class="h-full object-cover object-center">
+                <img src="https://res.cloudinary.com/dz2kni4c2/image/upload/v1721722058/lc_ix3ekg.jpg" alt="Metera Teknik Indonesia" class="h-full object-cover object-center">
             </div>
             <div class="relative bg-gray-900 bg-opacity-75 px-6 py-32 sm:px-12 sm:py-40 lg:px-16">
                 <div class="relative mx-auto flex max-w-3xl flex-col items-center text-center">
