@@ -5,6 +5,9 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use Spatie\Sitemap\Sitemap;
 use Spatie\Sitemap\Tags\Url;
+use App\Models\Product;
+use App\Models\Category;
+use App\Models\Brand;
 
 class GenerateSitemap extends Command
 {
@@ -18,6 +21,7 @@ class GenerateSitemap extends Command
 
         $sitemap = Sitemap::create();
 
+        // Static URLs
         $sitemap->add(Url::create($baseUrl . '/')
             ->setLastModificationDate(now())
             ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
@@ -28,62 +32,41 @@ class GenerateSitemap extends Command
             ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
             ->setPriority(0.8));
 
-        // Add more URLs here
-        $sitemap->add(Url::create($baseUrl . '/product')
-            ->setLastModificationDate(now())
-            ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
-            ->setPriority(0.8));
-
         $sitemap->add(Url::create($baseUrl . '/contact')
             ->setLastModificationDate(now())
             ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
             ->setPriority(0.8));
 
-        $sitemap->add(Url::create($baseUrl . '/katalog')
-            ->setLastModificationDate(now())
-            ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
-            ->setPriority(0.8));
+        // Fetch dynamic URLs from database
 
-        $sitemap->add(Url::create($baseUrl . '/galery')
-            ->setLastModificationDate(now())
-            ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
-            ->setPriority(0.8));
+        // Products
+        $products = Product::all();
+        foreach ($products as $product) {
+            $sitemap->add(Url::create($baseUrl . '/product/' . $product->slug)
+                ->setLastModificationDate($product->updated_at)
+                ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+                ->setPriority(0.8));
+        }
 
-        $sitemap->add(Url::create($baseUrl . '/calibration')
-            ->setLastModificationDate(now())
-            ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
-            ->setPriority(0.8));
+        // Categories
+        $categories = Category::all();
+        foreach ($categories as $category) {
+            $sitemap->add(Url::create($baseUrl . '/category/' . $category->slug)
+                ->setLastModificationDate($category->updated_at)
+                ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+                ->setPriority(0.8));
+        }
 
-        $sitemap->add(Url::create($baseUrl . '/category')
-            ->setLastModificationDate(now())
-            ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
-            ->setPriority(0.8));
+        // Brands
+        $brands = Brand::all();
+        foreach ($brands as $brand) {
+            $sitemap->add(Url::create($baseUrl . '/brands/' . $brand->slug)
+                ->setLastModificationDate($brand->updated_at)
+                ->setChangeFrequency(Url::CHANGE_FREQUENCY_WEEKLY)
+                ->setPriority(0.8));
+        }
 
-        $sitemap->add(Url::create($baseUrl . '/brands')
-            ->setLastModificationDate(now())
-            ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
-            ->setPriority(0.8));
-
-        $sitemap->add(Url::create($baseUrl . '/live-search')
-            ->setLastModificationDate(now())
-            ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
-            ->setPriority(0.8));
-
-        $sitemap->add(Url::create($baseUrl . '/product/{product:slug}')
-            ->setLastModificationDate(now())
-            ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
-            ->setPriority(0.8));
-
-        $sitemap->add(Url::create($baseUrl . '/category/{category:slug}')
-            ->setLastModificationDate(now())
-            ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
-            ->setPriority(0.8));
-
-        $sitemap->add(Url::create($baseUrl . '/brands/{brand:slug}')
-            ->setLastModificationDate(now())
-            ->setChangeFrequency(Url::CHANGE_FREQUENCY_DAILY)
-            ->setPriority(0.8));
-
+        // Write the sitemap to a file
         $sitemap->writeToFile(public_path('sitemap.xml'));
 
         $this->info('Sitemap generated successfully.');
