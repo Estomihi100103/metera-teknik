@@ -1,22 +1,22 @@
 <div
-    class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:grid lg:max-w-7xl lg:grid-cols-[1fr,3fr] lg:gap-x-8 lg:px-8">
+    class="mx-auto max-w-2xl px-4 py-10 sm:px-6 sm:py-2 lg:grid lg:max-w-7xl lg:grid-cols-[1fr,3fr] lg:gap-x-8 lg:px-8 mb-8">
     <!-- Product details -->
-    <div class="lg:self-end">
-        <h2 class="text-2xl font-bold tracking-tight text-gray-900 mb-5">Pelanggan Juga Membeli</h2>
-        <div class="relative mt-2 rounded-md shadow-sm">
-            <input type="text" name="" id="search"
-                class="block w-full rounded-full border-0 px-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                placeholder="Look for what you want">
-
-            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                    stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-                </svg>
+    <div class="lg:self-end lg:sticky lg:top-0 lg:pt-32">
+        <section aria-labelledby="information-heading" class="mt-4 ">
+            <h2 class="text-2xl font-bold tracking-tight text-gray-900 mb-5">Pelanggan Juga Membeli</h2>
+            <div class="relative mt-2 rounded-md shadow-sm">
+                <input type="text" name="" id="search"
+                    class="block w-full rounded-full border-0 px-4 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    placeholder="Look for what you want">
+    
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-3">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                    </svg>
+                </div>
             </div>
-        </div>
-        <section aria-labelledby="information-heading" class="mt-4">
             <table class="min-w-full divide-y divide-gray-300">
                 <tbody id="categoryList" class="bg-white divide-y divide-gray-200">
                     @foreach ($brands as $brand)
@@ -64,7 +64,7 @@
 
 
     <!-- Product image -->
-    <div class="lg:row-span-2 lg:mt-0">
+    <div class="lg:row-span-2 lg:mt-0 ">
         <div class="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg">
             <div class="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">
                 @foreach ($isproducts as $isproduct)
@@ -150,4 +150,5 @@
             }
         });
     });
+
 </script>

@@ -10,7 +10,7 @@ class BrandController extends Controller
 {
     public function index()
     {
-        $brands = Brand::all();
+        $brands = Brand::withCount('products')->with('products')->get();
         $meta_title = "Metera Teknik Indonesia | Distributor Flow Meter dan Alat Teknik Industri";
         $meta_description = "Distributor FLow meter, Water Meter, Wire Mesh Stainles, Kobe, dan Alat Alat Teknik Sipil";
         $meta_keywords = "Flow Meter, Rota Meter, Gas Detector MSA, Water Meter, Wire Mesh Stainles, Kobe, Alat Teknik Sipil";

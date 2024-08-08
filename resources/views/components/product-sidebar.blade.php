@@ -1,9 +1,7 @@
-<div class="mt-10 md:mt-0">
-    <div class="px-6 text-xl text-gray-900 font-bold border-b-2 border-gray-700 text-center mt-0 md:mt-4 pb-2">
+<div class="mt-10 md:mt-0 ">
+    <div class="px-6 text-xl text-gray-900 font-bold  text-center mt-0 md:mt-4 pb-2">
         <header class="text-center">
-            <h1 class="text-base font-semibold text-indigo-600 tracking-wide uppercase">Flow Meter dan Alat
-                Teknik Industri</h1>
-            <p class="mt-1 text-2xl font-extrabold text-gray-900 sm:text-5xl sm:tracking-tight lg:text-xl">
+            <p class="mt-1 text-2xl font-extrabold text-gray-700 sm:text-5xl sm:tracking-tight lg:text-xl">
                 Koleksi Terkini
             </p>
         </header>
@@ -11,12 +9,12 @@
     <nav class="hs-accordion-group py-6 pl-6 pr-2 w-full flex flex-col flex-wrap" data-hs-accordion-always-open>
         <ul class="space-y-1.5">
             @foreach ($categories as $category)
-                <li class="hs-accordion border-b-1" id="accordion-{{ $category->id }}">
+                <li class="hs-accordion border-b border-gray-300 py-2 " id="accordion-{{ $category->id }}">
                     <button type="button"
-                        class="hs-accordion-toggle hs-accordion-active:text-blue-600 hs-accordion-active:hover:bg-transparent w-full text-start flex items-center gap-x-3.5 py-2 text-lg font-semibold text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                        class="hs-accordion-toggle  hs-accordion-active:text-blue-600 hs-accordion-active:hover:bg-transparent w-full text-start flex items-center gap-x-3.5 py-2 text-lg font-semibold text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
                         aria-expanded="false" aria-controls="accordion-content-{{ $category->id }}">
                         <span
-                            class="whitespace-nowrap rounded-full bg-gray-300 -ml-5 mr-2 px-2 py-0.5 text-center text-xs font-medium leading-5 text-gray-900 ring-1 ring-inset ring-gray-200">
+                            class="whitespace-nowrap  rounded-full bg-gray-300 -ml-5 mr-2 px-2 py-0.5 text-center text-xs font-medium leading-5 text-gray-900 ring-1 ring-inset ring-gray-200">
                             {{ $category->brands->sum(function ($brand) {return $brand->products->count();}) }}
                         </span>
                         {{ $category->name }}
@@ -39,9 +37,9 @@
                         aria-labelledby="accordion-{{ $category->id }}">
                         <ul class="hs-accordion-group ps-3 pt-2" data-hs-accordion-always-open>
                             @foreach ($category->brands as $brand)
-                                <li class="hs-accordion" id="sub-accordion-{{ $category->id }}-{{ $brand->id }}">
+                                <li class="hs-accordion " id="sub-accordion-{{ $category->id }}-{{ $brand->id }}">
                                     <button type="button"
-                                        class="hs-accordion-toggle hs-accordion-active:text-blue-600 hs-accordion-active:hover:bg-transparent w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 text-sm font-semibold text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
+                                        class="hs-accordion-toggle hs-accordion-active:text-blue-600 hs-accordion-active:hover:bg-transparent w-full text-start flex items-center gap-x-3.5 py-2 pl-2.5 text-sm font-semibold text-gray-700 rounded-lg hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
                                         aria-expanded="false"
                                         aria-controls="sub-accordion-content-{{ $category->id }}-{{ $brand->id }}">
                                         <span

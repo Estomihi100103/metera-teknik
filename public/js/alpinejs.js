@@ -1,9 +1,468 @@
-(() => {
-  var e = !1, t = !1, n = [], r = -1; function i(e) { o(e) } function o(e) { n.includes(e) || n.push(e), l() } function a(e) { let t = n.indexOf(e); -1 !== t && t > r && n.splice(t, 1) } function l() { t || e || (e = !0, queueMicrotask(s)) } function s() { e = !1, t = !0; for (let i = 0; i < n.length; i++)n[i](), r = i; n.length = 0, r = -1, t = !1 } var u, c, f, d, p = !0; function h(e) { p = !1, e(), p = !0 } function x(e) { u = e.reactive, f = e.release, c = t => e.effect(t, { scheduler(e) { p ? i(e) : e() } }), d = e.raw } function g(e) { c = e } function v(e) { let t = () => { }; return [n => { let r = c(n); return e._x_effects || (e._x_effects = new Set, e._x_runEffects = () => { e._x_effects.forEach(e => e()) }), e._x_effects.add(r), t = () => { void 0 !== r && (e._x_effects.delete(r), f(r)) }, r }, () => { t() }] } function m(e, t) { let n = !0, r, i = c(() => { let i = e(); JSON.stringify(i), n ? r = i : queueMicrotask(() => { t(i, r), r = i }), n = !1 }); return () => f(i) } var y = [], $ = [], b = []; function _(e) { b.push(e) } function w(e, t) { "function" == typeof t ? (e._x_cleanups || (e._x_cleanups = []), e._x_cleanups.push(t)) : (t = e, $.push(t)) } function E(e) { y.push(e) } function k(e, t, n) { e._x_attributeCleanups || (e._x_attributeCleanups = {}), e._x_attributeCleanups[t] || (e._x_attributeCleanups[t] = []), e._x_attributeCleanups[t].push(n) } function A(e, t) { e._x_attributeCleanups && Object.entries(e._x_attributeCleanups).forEach(([n, r]) => { (void 0 === t || t.includes(n)) && (r.forEach(e => e()), delete e._x_attributeCleanups[n]) }) } function C(e) { if (e._x_cleanups) for (; e._x_cleanups.length;)e._x_cleanups.pop()() } var S = new MutationObserver(R), O = !1; function L() { S.observe(document, { subtree: !0, childList: !0, attributes: !0, attributeOldValue: !0 }), O = !0 } function P() { N(), S.disconnect(), O = !1 } var j = []; function N() { let e = S.takeRecords(); j.push(() => e.length > 0 && R(e)); let t = j.length; queueMicrotask(() => { if (j.length === t) for (; j.length > 0;)j.shift()() }) } function M(e) { if (!O) return e(); P(); let t = e(); return L(), t } var T = !1, z = []; function D() { T = !0 } function I() { T = !1, R(z), z = [] } function R(e) { if (T) { z = z.concat(e); return } let t = new Set, n = new Set, r = new Map, i = new Map; for (let o = 0; o < e.length; o++)if (!e[o].target._x_ignoreMutationObserver && ("childList" === e[o].type && (e[o].addedNodes.forEach(e => 1 === e.nodeType && t.add(e)), e[o].removedNodes.forEach(e => 1 === e.nodeType && n.add(e))), "attributes" === e[o].type)) { let a = e[o].target, l = e[o].attributeName, s = e[o].oldValue, u = () => { r.has(a) || r.set(a, []), r.get(a).push({ name: l, value: a.getAttribute(l) }) }, c = () => { i.has(a) || i.set(a, []), i.get(a).push(l) }; a.hasAttribute(l) && null === s ? u() : a.hasAttribute(l) ? (c(), u()) : c() } for (let f of (i.forEach((e, t) => { A(t, e) }), r.forEach((e, t) => { y.forEach(n => n(t, e)) }), n)) t.has(f) || $.forEach(e => e(f)); for (let d of (t.forEach(e => { e._x_ignoreSelf = !0, e._x_ignore = !0 }), t)) n.has(d) || d.isConnected && (delete d._x_ignoreSelf, delete d._x_ignore, b.forEach(e => e(d)), d._x_ignore = !0, d._x_ignoreSelf = !0); t.forEach(e => { delete e._x_ignoreSelf, delete e._x_ignore }), t = null, n = null, r = null, i = null } function B(e) { return U(K(e)) } function F(e, t, n) { return e._x_dataStack = [t, ...K(n || e)], () => { e._x_dataStack = e._x_dataStack.filter(e => e !== t) } } function K(e) { return e._x_dataStack ? e._x_dataStack : "function" == typeof ShadowRoot && e instanceof ShadowRoot ? K(e.host) : e.parentNode ? K(e.parentNode) : [] } function U(e) { return new Proxy({ objects: e }, V) } var V = { ownKeys: ({ objects: e }) => Array.from(new Set(e.flatMap(e => Object.keys(e)))), has: ({ objects: e }, t) => t != Symbol.unscopables && e.some(e => Object.prototype.hasOwnProperty.call(e, t) || Reflect.has(e, t)), get: ({ objects: e }, t, n) => "toJSON" == t ? W : Reflect.get(e.find(e => Reflect.has(e, t)) || {}, t, n), set({ objects: e }, t, n, r) { let i = e.find(e => Object.prototype.hasOwnProperty.call(e, t)) || e[e.length - 1], o = Object.getOwnPropertyDescriptor(i, t); return o?.set && o?.get ? Reflect.set(i, t, n, r) : Reflect.set(i, t, n) } }; function W() { return Reflect.ownKeys(this).reduce((e, t) => (e[t] = Reflect.get(this, t), e), {}) } function q(e) { let t = e => "object" == typeof e && !Array.isArray(e) && null !== e, n = (r, i = "") => { Object.entries(Object.getOwnPropertyDescriptors(r)).forEach(([o, { value: a, enumerable: l }]) => { if (!1 === l || void 0 === a || "object" == typeof a && null !== a && a.__v_skip) return; let s = "" === i ? o : `${i}.${o}`; "object" == typeof a && null !== a && a._x_interceptor ? r[o] = a.initialize(e, s, o) : !t(a) || a === r || a instanceof Element || n(a, s) }) }; return n(e) } function H(e, t = () => { }) { let n = { initialValue: void 0, _x_interceptor: !0, initialize(t, n, r) { return e(this.initialValue, () => Z(t, n), e => X(t, n, e), n, r) } }; return t(n), e => { if ("object" == typeof e && null !== e && e._x_interceptor) { let t = n.initialize.bind(n); n.initialize = (r, i, o) => { let a = e.initialize(r, i, o); return n.initialValue = a, t(r, i, o) } } else n.initialValue = e; return n } } function Z(e, t) { return t.split(".").reduce((e, t) => e[t], e) } function X(e, t, n) { if ("string" == typeof t && (t = t.split(".")), 1 === t.length) e[t[0]] = n; else { if (0 === t.length) throw error; return e[t[0]] || (e[t[0]] = {}), X(e[t[0]], t.slice(1), n) } } var Y = {}; function J(e, t) { Y[e] = t } function G(e, t) { return Object.entries(Y).forEach(([n, r]) => { let i = null; Object.defineProperty(e, `$${n}`, { get: () => r(t, function e() { if (i) return i; { let [n, r] = eE(t); return i = { interceptor: H, ...n }, w(t, r), i } }()), enumerable: !1 }) }), e } function Q(e, t, n, ...r) { try { return n(...r) } catch (i) { ee(i, e, t) } } function ee(e, t, n) {
-    e = Object.assign(e ?? { message: "No error message given." }, { el: t, expression: n }), console.warn(`Alpine Expression Error: ${e.message}
+window.onload = function () {
+  document.getElementById("livescroll").scrollIntoView();
+};
 
-${n ? 'Expression: "' + n + `"
 
-`: ""}`, t), setTimeout(() => { throw e }, 0)
-  } var et = !0; function en(e) { let t = et; et = !1; let n = e(); return et = t, n } function er(e, t, n = {}) { let r; return ei(e, t)(e => r = e, n), r } function ei(...e) { return eo(...e) } var eo = el; function ea(e) { eo = e } function el(e, t) { let n = {}; G(n, e); let r = [n, ...K(e)], i = "function" == typeof t ? es(r, t) : ef(r, t, e); return Q.bind(null, e, t, i) } function es(e, t) { return (n = () => { }, { scope: r = {}, params: i = [] } = {}) => { let o = t.apply(U([r, ...e]), i); ed(n, o) } } var eu = {}; function ec(e, t) { if (eu[e]) return eu[e]; let n = Object.getPrototypeOf(async function () { }).constructor, r = /^[\n\s]*if.*\(.*\)/.test(e.trim()) || /^(let|const)\s/.test(e.trim()) ? `(async()=>{ ${e} })()` : e, i = (() => { try { let i = new n(["__self", "scope"], `with (scope) { __self.result = ${r} }; __self.finished = true; return __self.result;`); return Object.defineProperty(i, "name", { value: `[Alpine] ${e}` }), i } catch (o) { return ee(o, t, e), Promise.resolve() } })(); return eu[e] = i, i } function ef(e, t, n) { let r = ec(t, n); return (i = () => { }, { scope: o = {}, params: a = [] } = {}) => { r.result = void 0, r.finished = !1; let l = U([o, ...e]); if ("function" == typeof r) { let s = r(r, l).catch(e => ee(e, n, t)); r.finished ? (ed(i, r.result, l, a, n), r.result = void 0) : s.then(e => { ed(i, e, l, a, n) }).catch(e => ee(e, n, t)).finally(() => r.result = void 0) } } } function ed(e, t, n, r, i) { if (et && "function" == typeof t) { let o = t.apply(n, r); o instanceof Promise ? o.then(t => ed(e, t, n, r)).catch(e => ee(e, i, t)) : e(o) } else "object" == typeof t && t instanceof Promise ? t.then(t => e(t)) : e(t) } var e8 = "x-"; function ep(e = "") { return e8 + e } function eh(e) { e8 = e } var ex = {}; function eg(e, t) { return ex[e] = t, { before(t) { if (!ex[t]) { console.warn(String.raw`Cannot find directive \`${t}\`. \`${e}\` will use the default order of execution`); return } let n = eM.indexOf(t); eM.splice(n >= 0 ? n : eM.indexOf("DEFAULT"), 0, e) } } } function ev(e) { return Object.keys(ex).includes(e) } function em(e, t, n) { if (t = Array.from(t), e._x_virtualDirectives) { let r = Object.entries(e._x_virtualDirectives).map(([e, t]) => ({ name: e, value: t })), i = ey(r); r = r.map(e => i.find(t => t.name === e.name) ? { name: `x-bind:${e.name}`, value: `"${e.value}"` } : e), t = t.concat(r) } let o = {}; return t.map(eC((e, t) => o[e] = t)).filter(eL).map(ej(o, n)).sort(eT).map(t => ek(e, t)) } function ey(e) { return Array.from(e).map(eC()).filter(e => !eL(e)) } var e$ = !1, eb = new Map, e_ = Symbol(); function ew(e) { e$ = !0; let t = Symbol(); e_ = t, eb.set(t, []); let n = () => { for (; eb.get(t).length;)eb.get(t).shift()(); eb.delete(t) }; e(n), e$ = !1, n() } function eE(e) { let t = [], n = e => t.push(e), [r, i] = v(e); return t.push(i), [{ Alpine: tJ, effect: r, cleanup: n, evaluateLater: ei.bind(ei, e), evaluate: er.bind(er, e) }, () => t.forEach(e => e())] } function ek(e, t) { let n = () => { }, r = ex[t.type] || n, [i, o] = eE(e); k(e, t.original, o); let a = () => { e._x_ignore || e._x_ignoreSelf || (r.inline && r.inline(e, t, i), r = r.bind(r, e, t, i), e$ ? eb.get(e_).push(r) : r()) }; return a.runCleanups = o, a } var eA = (e, t) => ({ name: n, value: r }) => (n.startsWith(e) && (n = n.replace(e, t)), { name: n, value: r }), e9 = e => e; function eC(e = () => { }) { return ({ name: t, value: n }) => { let { name: r, value: i } = eS.reduce((e, t) => t(e), { name: t, value: n }); return r !== t && e(r, t), { name: r, value: i } } } var eS = []; function eO(e) { eS.push(e) } function eL({ name: e }) { return eP().test(e) } var eP = () => RegExp(`^${e8}([^:^.]+)\\b`); function ej(e, t) { return ({ name: n, value: r }) => { let i = n.match(eP()), o = n.match(/:([a-zA-Z0-9\-_:]+)/), a = n.match(/\.[^.\]]+(?=[^\]]*$)/g) || [], l = t || e[n] || n; return { type: i ? i[1] : null, value: o ? o[1] : null, modifiers: a.map(e => e.replace(".", "")), expression: r, original: l } } } var eN = "DEFAULT", eM = ["ignore", "ref", "data", "id", "anchor", "bind", "init", "for", "model", "modelable", "transition", "show", "if", eN, "teleport"]; function eT(e, t) { let n = -1 === eM.indexOf(e.type) ? eN : e.type, r = -1 === eM.indexOf(t.type) ? eN : t.type; return eM.indexOf(n) - eM.indexOf(r) } function ez(e, t, n = {}) { e.dispatchEvent(new CustomEvent(t, { detail: n, bubbles: !0, composed: !0, cancelable: !0 })) } function eD(e, t) { if ("function" == typeof ShadowRoot && e instanceof ShadowRoot) { Array.from(e.children).forEach(e => eD(e, t)); return } let n = !1; if (t(e, () => n = !0), n) return; let r = e.firstElementChild; for (; r;)eD(r, t, !1), r = r.nextElementSibling } function eI(e, ...t) { console.warn(`Alpine Warning: ${e}`, ...t) } var eR = !1; function eB() { eR && eI("Alpine has already been initialized on this page. Calling Alpine.start() more than once can cause problems."), eR = !0, document.body || eI("Unable to initialize. Trying to load Alpine before `<body>` is available. Did you forget to add `defer` in Alpine's `<script>` tag?"), ez(document, "alpine:init"), ez(document, "alpine:initializing"), L(), _(e => eX(e, eD)), w(e => e7(e)), E((e, t) => { em(e, t).forEach(e => e()) }); let e = e => !e1(e.parentElement, !0); Array.from(document.querySelectorAll(eU().join(","))).filter(e).forEach(e => { eX(e) }), ez(document, "alpine:initialized"), setTimeout(() => { eY() }) } var e0 = [], eF = []; function eK() { return e0.map(e => e()) } function eU() { return e0.concat(eF).map(e => e()) } function eV(e) { e0.push(e) } function eW(e) { eF.push(e) } function e1(e, t = !1) { return eq(e, e => { if ((t ? eU() : eK()).some(t => e.matches(t))) return !0 }) } function eq(e, t) { if (e) { if (t(e)) return e; if (e._x_teleportBack && (e = e._x_teleportBack), e.parentElement) return eq(e.parentElement, t) } } function eH(e) { return eK().some(t => e.matches(t)) } var e3 = []; function eZ(e) { e3.push(e) } function eX(e, t = eD, n = () => { }) { ew(() => { t(e, (e, t) => { n(e, t), e3.forEach(n => n(e, t)), em(e, e.attributes).forEach(e => e()), e._x_ignore && t() }) }) } function e7(e, t = eD) { t(e, e => { A(e), C(e) }) } function eY() { [["ui", "dialog", ["[x-dialog], [x-popover]"]], ["anchor", "anchor", ["[x-anchor]"]], ["sort", "sort", ["[x-sort]"]]].forEach(([e, t, n]) => { ev(t) || n.some(t => { if (document.querySelector(t)) return eI(`found "${t}", but missing ${e} plugin`), !0 }) }) } var eJ = [], e2 = !1; function e5(e = () => { }) { return queueMicrotask(() => { e2 || setTimeout(() => { e6() }) }), new Promise(t => { eJ.push(() => { e(), t() }) }) } function e6() { for (e2 = !1; eJ.length;)eJ.shift()() } function eG() { e2 = !0 } function eQ(e, t) { return Array.isArray(t) ? e4(e, t.join(" ")) : "object" == typeof t && null !== t ? te(e, t) : "function" == typeof t ? eQ(e, t()) : e4(e, t) } function e4(e, t) { var n, r; return r = (t = !0 === t ? t = "" : t || "").split(" ").filter(t => !e.classList.contains(t)).filter(Boolean), e.classList.add(...r), () => { e.classList.remove(...r) } } function te(e, t) { let n = e => e.split(" ").filter(Boolean), r = Object.entries(t).flatMap(([e, t]) => !!t && n(e)).filter(Boolean), i = Object.entries(t).flatMap(([e, t]) => !t && n(e)).filter(Boolean), o = [], a = []; return i.forEach(t => { e.classList.contains(t) && (e.classList.remove(t), a.push(t)) }), r.forEach(t => { e.classList.contains(t) || (e.classList.add(t), o.push(t)) }), () => { a.forEach(t => e.classList.add(t)), o.forEach(t => e.classList.remove(t)) } } function tt(e, t) { return "object" == typeof t && null !== t ? tn(e, t) : tr(e, t) } function tn(e, t) { let n = {}; return Object.entries(t).forEach(([t, r]) => { n[t] = e.style[t], t.startsWith("--") || (t = ti(t)), e.style.setProperty(t, r) }), setTimeout(() => { 0 === e.style.length && e.removeAttribute("style") }), () => { tt(e, n) } } function tr(e, t) { let n = e.getAttribute("style", t); return e.setAttribute("style", t), () => { e.setAttribute("style", n || "") } } function ti(e) { return e.replace(/([a-z])([A-Z])/g, "$1-$2").toLowerCase() } function to(e, t = () => { }) { let n = !1; return function () { n ? t.apply(this, arguments) : (n = !0, e.apply(this, arguments)) } } function ta(e, t, n) { ts(e, eQ, ""), ({ enter(t) { e._x_transition.enter.during = t }, "enter-start"(t) { e._x_transition.enter.start = t }, "enter-end"(t) { e._x_transition.enter.end = t }, leave(t) { e._x_transition.leave.during = t }, "leave-start"(t) { e._x_transition.leave.start = t }, "leave-end"(t) { e._x_transition.leave.end = t } })[n](t) } function tl(e, t, n) { ts(e, tt); let r = !t.includes("in") && !t.includes("out") && !n, i = r || t.includes("in") || ["enter"].includes(n), o = r || t.includes("out") || ["leave"].includes(n); t.includes("in") && !r && (t = t.filter((e, n) => n < t.indexOf("out"))), t.includes("out") && !r && (t = t.filter((e, n) => n > t.indexOf("out"))); let a = !t.includes("opacity") && !t.includes("scale"), l = a || t.includes("opacity"), s = a || t.includes("scale"), u = l ? 0 : 1, c = s ? td(t, "scale", 95) / 100 : 1, f = td(t, "delay", 0) / 1e3, d = td(t, "origin", "center"), p = "opacity, transform", h = td(t, "duration", 150) / 1e3, x = td(t, "duration", 75) / 1e3, g = "cubic-bezier(0.4, 0.0, 0.2, 1)"; i && (e._x_transition.enter.during = { transformOrigin: d, transitionDelay: `${f}s`, transitionProperty: p, transitionDuration: `${h}s`, transitionTimingFunction: g }, e._x_transition.enter.start = { opacity: u, transform: `scale(${c})` }, e._x_transition.enter.end = { opacity: 1, transform: "scale(1)" }), o && (e._x_transition.leave.during = { transformOrigin: d, transitionDelay: `${f}s`, transitionProperty: p, transitionDuration: `${x}s`, transitionTimingFunction: g }, e._x_transition.leave.start = { opacity: 1, transform: "scale(1)" }, e._x_transition.leave.end = { opacity: u, transform: `scale(${c})` }) } function ts(e, t, n = {}) { e._x_transition || (e._x_transition = { enter: { during: n, start: n, end: n }, leave: { during: n, start: n, end: n }, in(n = () => { }, r = () => { }) { tc(e, t, { during: this.enter.during, start: this.enter.start, end: this.enter.end }, n, r) }, out(n = () => { }, r = () => { }) { tc(e, t, { during: this.leave.during, start: this.leave.start, end: this.leave.end }, n, r) } }) } function tu(e) { let t = e.parentNode; if (t) return t._x_hidePromise ? t : tu(t) } function tc(e, t, { during: n, start: r, end: i } = {}, o = () => { }, a = () => { }) { if (e._x_transitioning && e._x_transitioning.cancel(), 0 === Object.keys(n).length && 0 === Object.keys(r).length && 0 === Object.keys(i).length) { o(), a(); return } let l, s, u; tf(e, { start() { l = t(e, r) }, during() { s = t(e, n) }, before: o, end() { l(), u = t(e, i) }, after: a, cleanup() { s(), u() } }) } function tf(e, t) { let n, r, i, o = to(() => { M(() => { n = !0, r || t.before(), i || (t.end(), e6()), t.after(), e.isConnected && t.cleanup(), delete e._x_transitioning }) }); e._x_transitioning = { beforeCancels: [], beforeCancel(e) { this.beforeCancels.push(e) }, cancel: to(function () { for (; this.beforeCancels.length;)this.beforeCancels.shift()(); o() }), finish: o }, M(() => { t.start(), t.during() }), eG(), requestAnimationFrame(() => { if (n) return; let o = 1e3 * Number(getComputedStyle(e).transitionDuration.replace(/,.*/, "").replace("s", "")), a = 1e3 * Number(getComputedStyle(e).transitionDelay.replace(/,.*/, "").replace("s", "")); 0 === o && (o = 1e3 * Number(getComputedStyle(e).animationDuration.replace("s", ""))), M(() => { t.before() }), r = !0, requestAnimationFrame(() => { n || (M(() => { t.end() }), e6(), setTimeout(e._x_transitioning.finish, o + a), i = !0) }) }) } function td(e, t, n) { if (-1 === e.indexOf(t)) return n; let r = e[e.indexOf(t) + 1]; if (!r || "scale" === t && isNaN(r)) return n; if ("duration" === t || "delay" === t) { let i = r.match(/([0-9]+)ms/); if (i) return i[1] } return "origin" === t && ["top", "right", "left", "center", "bottom"].includes(e[e.indexOf(t) + 2]) ? [r, e[e.indexOf(t) + 2]].join(" ") : r } eg("transition", (e, { value: t, modifiers: n, expression: r }, { evaluate: i }) => { "function" == typeof r && (r = i(r)), !1 !== r && (r && "boolean" != typeof r ? ta(e, r, t) : tl(e, n, t)) }), window.Element.prototype._x_toggleAndCascadeWithTransitions = function (e, t, n, r) { let i = "visible" === document.visibilityState ? requestAnimationFrame : setTimeout, o = () => i(n); if (t) { e._x_transition && (e._x_transition.enter || e._x_transition.leave) ? e._x_transition.enter && (Object.entries(e._x_transition.enter.during).length || Object.entries(e._x_transition.enter.start).length || Object.entries(e._x_transition.enter.end).length) ? e._x_transition.in(n) : o() : e._x_transition ? e._x_transition.in(n) : o(); return } e._x_hidePromise = e._x_transition ? new Promise((t, n) => { e._x_transition.out(() => { }, () => t(r)), e._x_transitioning && e._x_transitioning.beforeCancel(() => n({ isFromCancelledTransition: !0 })) }) : Promise.resolve(r), queueMicrotask(() => { let t = tu(e); t ? (t._x_hideChildren || (t._x_hideChildren = []), t._x_hideChildren.push(e)) : i(() => { let t = e => { let n = Promise.all([e._x_hidePromise, ...(e._x_hideChildren || []).map(t)]).then(([e]) => e()); return delete e._x_hidePromise, delete e._x_hideChildren, n }; t(e).catch(e => { if (!e.isFromCancelledTransition) throw e }) }) }) }; var t8 = !1; function tp(e, t = () => { }) { return (...n) => t8 ? t(...n) : e(...n) } function th(e) { return (...t) => t8 && e(...t) } var tx = []; function tg(e) { tx.push(e) } function tv(e, t) { tx.forEach(n => n(e, t)), t8 = !0, tb(() => { eX(t, (e, t) => { t(e, () => { }) }) }), t8 = !1 } var tm = !1; function ty(e, t) { t._x_dataStack || (t._x_dataStack = e._x_dataStack), t8 = !0, tm = !0, tb(() => { t$(t) }), t8 = !1, tm = !1 } function t$(e) { let t = !1; eX(e, (e, n) => { eD(e, (e, r) => { if (t && eH(e)) return r(); t = !0, n(e, r) }) }) } function tb(e) { let t = c; g((e, n) => { let r = t(e); return f(r), () => { } }), e(), g(t) } function t_(e, t, n, r = []) { switch (e._x_bindings || (e._x_bindings = u({})), e._x_bindings[t] = n, t = r.includes("camel") ? tL(t) : t) { case "value": tw(e, n); break; case "style": tk(e, n); break; case "class": tE(e, n); break; case "selected": case "checked": tA(e, t, n); break; default: t9(e, t, n) } } function tw(e, t) { if ("radio" === e.type) void 0 === e.attributes.value && (e.value = t), window.fromModel && ("boolean" == typeof t ? e.checked = tj(e.value) === t : e.checked = tP(e.value, t)); else if ("checkbox" === e.type) Number.isInteger(t) ? e.value = t : Array.isArray(t) || "boolean" == typeof t || [null, void 0].includes(t) ? Array.isArray(t) ? e.checked = t.some(t => tP(t, e.value)) : e.checked = !!t : e.value = String(t); else if ("SELECT" === e.tagName) tO(e, t); else { if (e.value === t) return; e.value = void 0 === t ? "" : t } } function tE(e, t) { e._x_undoAddedClasses && e._x_undoAddedClasses(), e._x_undoAddedClasses = eQ(e, t) } function tk(e, t) { e._x_undoAddedStyles && e._x_undoAddedStyles(), e._x_undoAddedStyles = tt(e, t) } function tA(e, t, n) { t9(e, t, n), tS(e, t, n) } function t9(e, t, n) { [null, void 0, !1].includes(n) && tM(t) ? e.removeAttribute(t) : (tN(t) && (n = t), tC(e, t, n)) } function tC(e, t, n) { e.getAttribute(t) != n && e.setAttribute(t, n) } function tS(e, t, n) { e[t] !== n && (e[t] = n) } function tO(e, t) { let n = [].concat(t).map(e => e + ""); Array.from(e.options).forEach(e => { e.selected = n.includes(e.value) }) } function tL(e) { return e.toLowerCase().replace(/-(\w)/g, (e, t) => t.toUpperCase()) } function tP(e, t) { return e == t } function tj(e) { return !![1, "1", "true", "on", "yes", !0].includes(e) || ![0, "0", "false", "off", "no", !1].includes(e) && (e ? Boolean(e) : null) } function tN(e) { return ["disabled", "checked", "required", "readonly", "open", "selected", "autofocus", "itemscope", "multiple", "novalidate", "allowfullscreen", "allowpaymentrequest", "formnovalidate", "autoplay", "controls", "loop", "muted", "playsinline", "default", "ismap", "reversed", "async", "defer", "nomodule"].includes(e) } function tM(e) { return !["aria-pressed", "aria-checked", "aria-expanded", "aria-selected"].includes(e) } function tT(e, t, n) { return e._x_bindings && void 0 !== e._x_bindings[t] ? e._x_bindings[t] : tD(e, t, n) } function tz(e, t, n, r = !0) { if (e._x_bindings && void 0 !== e._x_bindings[t]) return e._x_bindings[t]; if (e._x_inlineBindings && void 0 !== e._x_inlineBindings[t]) { let i = e._x_inlineBindings[t]; return i.extract = r, en(() => er(e, i.expression)) } return tD(e, t, n) } function tD(e, t, n) { let r = e.getAttribute(t); return null === r ? "function" == typeof n ? n() : n : "" === r || (tN(t) ? !![t, "true"].includes(r) : r) } function tI(e, t) { var n; return function () { var r = this, i = arguments, o = function () { n = null, e.apply(r, i) }; clearTimeout(n), n = setTimeout(o, t) } } function tR(e, t) { let n; return function () { let r = arguments; n || (e.apply(this, r), n = !0, setTimeout(() => n = !1, t)) } } function tB({ get: e, set: t }, { get: n, set: r }) { let i = !0, o, a, l = c(() => { let l = e(), s = n(); if (i) r(t0(l)), i = !1; else { let u = JSON.stringify(l), c = JSON.stringify(s); u !== o ? r(t0(l)) : u !== c && t(t0(s)) } o = JSON.stringify(e()), a = JSON.stringify(n()) }); return () => { f(l) } } function t0(e) { return "object" == typeof e ? JSON.parse(JSON.stringify(e)) : e } function tF(e) { (Array.isArray(e) ? e : [e]).forEach(e => e(tJ)) } var tK = {}, tU = !1; function tV(e, t) { if (tU || (tK = u(tK), tU = !0), void 0 === t) return tK[e]; tK[e] = t, "object" == typeof t && null !== t && t.hasOwnProperty("init") && "function" == typeof t.init && tK[e].init(), q(tK[e]) } function tW() { return tK } var t1 = {}; function tq(e, t) { let n = "function" != typeof t ? () => t : t; return e instanceof Element ? t3(e, n()) : (t1[e] = n, () => { }) } function tH(e) { return Object.entries(t1).forEach(([t, n]) => { Object.defineProperty(e, t, { get: () => (...e) => n(...e) }) }), e } function t3(e, t, n) { let r = []; for (; r.length;)r.pop()(); let i = Object.entries(t).map(([e, t]) => ({ name: e, value: t })), o = ey(i); return em(e, i = i.map(e => o.find(t => t.name === e.name) ? { name: `x-bind:${e.name}`, value: `"${e.value}"` } : e), n).map(e => { r.push(e.runCleanups), e() }), () => { for (; r.length;)r.pop()() } } var tZ = {}; function tX(e, t) { tZ[e] = t } function t7(e, t) { return Object.entries(tZ).forEach(([n, r]) => { Object.defineProperty(e, n, { get: () => (...e) => r.bind(t)(...e), enumerable: !1 }) }), e } var tY, tJ = { get reactive() { return u }, get release() { return f }, get effect() { return c }, get raw() { return d }, version: "3.13.10", flushAndStopDeferringMutations: I, dontAutoEvaluateFunctions: en, disableEffectScheduling: h, startObservingMutations: L, stopObservingMutations: P, setReactivityEngine: x, onAttributeRemoved: k, onAttributesAdded: E, closestDataStack: K, skipDuringClone: tp, onlyDuringClone: th, addRootSelector: eV, addInitSelector: eW, interceptClone: tg, addScopeToNode: F, deferMutations: D, mapAttributes: eO, evaluateLater: ei, interceptInit: eZ, setEvaluator: ea, mergeProxies: U, extractProp: tz, findClosest: eq, onElRemoved: w, closestRoot: e1, destroyTree: e7, interceptor: H, transition: tc, setStyles: tt, mutateDom: M, directive: eg, entangle: tB, throttle: tR, debounce: tI, evaluate: er, initTree: eX, nextTick: e5, prefixed: ep, prefix: eh, plugin: tF, magic: J, store: tV, start: eB, clone: ty, cloneNode: tv, bound: tT, $data: B, watch: m, walk: eD, data: tX, bind: tq }; function t2(e, t) { let n = Object.create(null), r = e.split(","); for (let i = 0; i < r.length; i++)n[r[i]] = !0; return t ? e => !!n[e.toLowerCase()] : e => !!n[e] } var t5, t6, tG = t2("itemscope,allowfullscreen,formnovalidate,ismap,nomodule,novalidate,readonly,async,autofocus,autoplay,controls,default,defer,disabled,hidden,loop,open,required,reversed,scoped,seamless,checked,muted,multiple,selected"), tQ = Object.freeze({}), t4 = Object.freeze([]), ne = Object.prototype.hasOwnProperty, nt = (e, t) => ne.call(e, t), nn = Array.isArray, nr = e => "[object Map]" === ns(e), ni = e => "string" == typeof e, no = e => "symbol" == typeof e, na = e => null !== e && "object" == typeof e, nl = Object.prototype.toString, ns = e => nl.call(e), nu = e => ns(e).slice(8, -1), nc = e => ni(e) && "NaN" !== e && "-" !== e[0] && "" + parseInt(e, 10) === e, nf = e => { let t = Object.create(null); return n => t[n] || (t[n] = e(n)) }, nd = /-(\w)/g, n8 = nf(e => e.replace(nd, (e, t) => t ? t.toUpperCase() : "")), np = /\B([A-Z])/g, nh = nf(e => e.replace(np, "-$1").toLowerCase()), nx = nf(e => e.charAt(0).toUpperCase() + e.slice(1)), ng = nf(e => e ? `on${nx(e)}` : ""), nv = (e, t) => e !== t && (e == e || t == t), nm = new WeakMap, ny = [], n$ = Symbol("iterate"), nb = Symbol("Map key iterate"); function n_(e) { return e && !0 === e._isEffect } function nw(e, t = tQ) { n_(e) && (e = e.raw); let n = nA(e, t); return t.lazy || n(), n } function nE(e) { e.active && (n9(e), e.options.onStop && e.options.onStop(), e.active = !1) } var nk = 0; function nA(e, t) { let n = function () { if (!n.active) return e(); if (!ny.includes(n)) { n9(n); try { return nL(), ny.push(n), t6 = n, e() } finally { ny.pop(), nP(), t6 = ny[ny.length - 1] } } }; return n.id = nk++, n.allowRecurse = !!t.allowRecurse, n._isEffect = !0, n.active = !0, n.raw = e, n.deps = [], n.options = t, n } function n9(e) { let { deps: t } = e; if (t.length) { for (let n = 0; n < t.length; n++)t[n].delete(e); t.length = 0 } } var nC = !0, nS = []; function nO() { nS.push(nC), nC = !1 } function nL() { nS.push(nC), nC = !0 } function nP() { let e = nS.pop(); nC = void 0 === e || e } function nj(e, t, n) { if (!nC || void 0 === t6) return; let r = nm.get(e); r || nm.set(e, r = new Map); let i = r.get(n); i || r.set(n, i = new Set), i.has(t6) || (i.add(t6), t6.deps.push(i), t6.options.onTrack && t6.options.onTrack({ effect: t6, target: e, type: t, key: n })) } function nN(e, t, n, r, i, o) { let a = nm.get(e); if (!a) return; let l = new Set, s = e => { e && e.forEach(e => { (e !== t6 || e.allowRecurse) && l.add(e) }) }; if ("clear" === t) a.forEach(s); else if ("length" === n && nn(e)) a.forEach((e, t) => { ("length" === t || t >= r) && s(e) }); else switch (void 0 !== n && s(a.get(n)), t) { case "add": nn(e) ? nc(n) && s(a.get("length")) : (s(a.get(n$)), nr(e) && s(a.get(nb))); break; case "delete": nn(e) || (s(a.get(n$)), nr(e) && s(a.get(nb))); break; case "set": nr(e) && s(a.get(n$)) }let u = a => { a.options.onTrigger && a.options.onTrigger({ effect: a, target: e, key: n, type: t, newValue: r, oldValue: i, oldTarget: o }), a.options.scheduler ? a.options.scheduler(a) : a() }; l.forEach(u) } var nM = t2("__proto__,__v_isRef,__isVue"), nT = new Set(Object.getOwnPropertyNames(Symbol).map(e => Symbol[e]).filter(no)), nz = nB(), nD = nB(!0), nI = nR(); function nR() { let e = {}; return ["includes", "indexOf", "lastIndexOf"].forEach(t => { e[t] = function (...e) { let n = rv(this); for (let r = 0, i = this.length; r < i; r++)nj(n, "get", r + ""); let o = n[t](...e); return -1 === o || !1 === o ? n[t](...e.map(rv)) : o } }), ["push", "pop", "shift", "unshift", "splice"].forEach(t => { e[t] = function (...e) { nO(); let n = rv(this)[t].apply(this, e); return nP(), n } }), e } function nB(e = !1, t = !1) { return function (n, r, i) { if ("__v_isReactive" === r) return !e; if ("__v_isReadonly" === r) return e; if ("__v_raw" === r && i === (e ? t ? rd : rf : t ? rc : ru).get(n)) return n; let o = nn(n); if (!e && o && nt(nI, r)) return Reflect.get(nI, r, i); let a = Reflect.get(n, r, i); return (no(r) ? nT.has(r) : nM(r)) || (e || nj(n, "get", r), t) ? a : rm(a) ? o && nc(r) ? a : a.value : na(a) ? e ? rx(a) : rh(a) : a } } var n0 = nF(); function nF(e = !1) { return function (t, n, r, i) { let o = t[n]; if (!e && (r = rv(r), o = rv(o), !nn(t) && rm(o) && !rm(r))) return o.value = r, !0; let a = nn(t) && nc(n) ? Number(n) < t.length : nt(t, n), l = Reflect.set(t, n, r, i); return t === rv(i) && (a ? nv(r, o) && nN(t, "set", n, r, o) : nN(t, "add", n, r)), l } } function nK(e, t) { let n = nt(e, t), r = e[t], i = Reflect.deleteProperty(e, t); return i && n && nN(e, "delete", t, void 0, r), i } function nU(e, t) { let n = Reflect.has(e, t); return no(t) && nT.has(t) || nj(e, "has", t), n } function nV(e) { return nj(e, "iterate", nn(e) ? "length" : n$), Reflect.ownKeys(e) } var nW = { get: nz, set: n0, deleteProperty: nK, has: nU, ownKeys: nV }, n1 = { get: nD, set: (e, t) => (console.warn(`Set operation on key "${String(t)}" failed: target is readonly.`, e), !0), deleteProperty: (e, t) => (console.warn(`Delete operation on key "${String(t)}" failed: target is readonly.`, e), !0) }, nq = e => na(e) ? rh(e) : e, nH = e => na(e) ? rx(e) : e, n3 = e => e, nZ = e => Reflect.getPrototypeOf(e); function nX(e, t, n = !1, r = !1) { let i = rv(e = e.__v_raw), o = rv(t); t === o || n || nj(i, "get", t), n || nj(i, "get", o); let { has: a } = nZ(i), l = r ? n3 : n ? nH : nq; return a.call(i, t) ? l(e.get(t)) : a.call(i, o) ? l(e.get(o)) : void (e !== i && e.get(t)) } function n7(e, t = !1) { let n = this.__v_raw, r = rv(n), i = rv(e); return e === i || t || nj(r, "has", e), t || nj(r, "has", i), e === i ? n.has(e) : n.has(e) || n.has(i) } function nY(e, t = !1) { return e = e.__v_raw, t || nj(rv(e), "iterate", n$), Reflect.get(e, "size", e) } function nJ(e) { e = rv(e); let t = rv(this); return nZ(t).has.call(t, e) || (t.add(e), nN(t, "add", e, e)), this } function n2(e, t) { t = rv(t); let n = rv(this), { has: r, get: i } = nZ(n), o = r.call(n, e); o ? rs(n, r, e) : (e = rv(e), o = r.call(n, e)); let a = i.call(n, e); return n.set(e, t), o ? nv(t, a) && nN(n, "set", e, t, a) : nN(n, "add", e, t), this } function n5(e) { let t = rv(this), { has: n, get: r } = nZ(t), i = n.call(t, e); i ? rs(t, n, e) : (e = rv(e), i = n.call(t, e)); let o = r ? r.call(t, e) : void 0, a = t.delete(e); return i && nN(t, "delete", e, void 0, o), a } function n6() { let e = rv(this), t = 0 !== e.size, n = nr(e) ? new Map(e) : new Set(e), r = e.clear(); return t && nN(e, "clear", void 0, void 0, n), r } function nG(e, t) { return function (n, r) { let i = this, o = i.__v_raw, a = rv(o), l = t ? n3 : e ? nH : nq; return e || nj(a, "iterate", n$), o.forEach((e, t) => n.call(r, l(e), l(t), i)) } } function nQ(e, t, n) { return function (...r) { let i = this.__v_raw, o = rv(i), a = nr(o), l = "entries" === e || e === Symbol.iterator && a, s = i[e](...r), u = n ? n3 : t ? nH : nq; return t || nj(o, "iterate", "keys" === e && a ? nb : n$), { next() { let { value: e, done: t } = s.next(); return t ? { value: e, done: t } : { value: l ? [u(e[0]), u(e[1])] : u(e), done: t } }, [Symbol.iterator]() { return this } } } } function n4(e) { return function (...t) { { let n = t[0] ? `on key "${t[0]}" ` : ""; console.warn(`${nx(e)} operation ${n}failed: target is readonly.`, rv(this)) } return "delete" !== e && this } } function re() { let e = { get(e) { return nX(this, e) }, get size() { return nY(this) }, has: n7, add: nJ, set: n2, delete: n5, clear: n6, forEach: nG(!1, !1) }, t = { get(e) { return nX(this, e, !1, !0) }, get size() { return nY(this) }, has: n7, add: nJ, set: n2, delete: n5, clear: n6, forEach: nG(!1, !0) }, n = { get(e) { return nX(this, e, !0) }, get size() { return nY(this, !0) }, has(e) { return n7.call(this, e, !0) }, add: n4("add"), set: n4("set"), delete: n4("delete"), clear: n4("clear"), forEach: nG(!0, !1) }, r = { get(e) { return nX(this, e, !0, !0) }, get size() { return nY(this, !0) }, has(e) { return n7.call(this, e, !0) }, add: n4("add"), set: n4("set"), delete: n4("delete"), clear: n4("clear"), forEach: nG(!0, !0) }; return ["keys", "values", "entries", Symbol.iterator].forEach(i => { e[i] = nQ(i, !1, !1), n[i] = nQ(i, !0, !1), t[i] = nQ(i, !1, !0), r[i] = nQ(i, !0, !0) }), [e, n, t, r] } var [rt, rn, rr, ri] = re(); function ro(e, t) { let n = t ? e ? ri : rr : e ? rn : rt; return (t, r, i) => "__v_isReactive" === r ? !e : "__v_isReadonly" === r ? e : "__v_raw" === r ? t : Reflect.get(nt(n, r) && r in t ? n : t, r, i) } var ra = { get: ro(!1, !1) }, rl = { get: ro(!0, !1) }; function rs(e, t, n) { let r = rv(n); if (r !== n && t.call(e, r)) { let i = nu(e); console.warn(`Reactive ${i} contains both the raw and reactive versions of the same object${"Map" === i ? " as keys" : ""}, which can lead to inconsistencies. Avoid differentiating between the raw and reactive versions of an object and only use the reactive version if possible.`) } } var ru = new WeakMap, rc = new WeakMap, rf = new WeakMap, rd = new WeakMap; function r8(e) { switch (e) { case "Object": case "Array": return 1; case "Map": case "Set": case "WeakMap": case "WeakSet": return 2; default: return 0 } } function rp(e) { return e.__v_skip || !Object.isExtensible(e) ? 0 : r8(nu(e)) } function rh(e) { return e && e.__v_isReadonly ? e : rg(e, !1, nW, ra, ru) } function rx(e) { return rg(e, !0, n1, rl, rf) } function rg(e, t, n, r, i) { if (!na(e)) return console.warn(`value cannot be made reactive: ${String(e)}`), e; if (e.__v_raw && !(t && e.__v_isReactive)) return e; let o = i.get(e); if (o) return o; let a = rp(e); if (0 === a) return e; let l = new Proxy(e, 2 === a ? r : n); return i.set(e, l), l } function rv(e) { return e && rv(e.__v_raw) || e } function rm(e) { return Boolean(e && !0 === e.__v_isRef) } function ry(e) { let t = []; return eq(e, e => { e._x_refs && t.push(e._x_refs) }), t } J("nextTick", () => e5), J("dispatch", e => ez.bind(ez, e)), J("watch", (e, { evaluateLater: t, cleanup: n }) => (e, r) => { let i = t(e), o = m(() => { let e; return i(t => e = t), e }, r); n(o) }), J("store", tW), J("data", e => B(e)), J("root", e => e1(e)), J("refs", e => (e._x_refs_proxy || (e._x_refs_proxy = U(ry(e))), e._x_refs_proxy)); var r$ = {}; function rb(e) { return r$[e] || (r$[e] = 0), ++r$[e] } function r_(e, t) { return eq(e, e => { if (e._x_ids && e._x_ids[t]) return !0 }) } function rw(e, t) { e._x_ids || (e._x_ids = {}), e._x_ids[t] || (e._x_ids[t] = rb(t)) } function rE(e, t, n, r) { if (e._x_id || (e._x_id = {}), e._x_id[t]) return e._x_id[t]; let i = r(); return e._x_id[t] = i, n(() => { delete e._x_id[t] }), i } function rk(e, t, n) { J(t, r => eI(`You can't use [$${t}] without first installing the "${e}" plugin here: https://alpinejs.dev/plugins/${n}`, r)) } J("id", (e, { cleanup: t }) => (n, r = null) => { let i = `${n}${r ? `-${r}` : ""}`; return rE(e, i, t, () => { let t = r_(e, n), i = t ? t._x_ids[n] : rb(n); return r ? `${n}-${i}-${r}` : `${n}-${i}` }) }), tg((e, t) => { e._x_id && (t._x_id = e._x_id) }), J("el", e => e), rk("Focus", "focus", "focus"), rk("Persist", "persist", "persist"), eg("modelable", (e, { expression: t }, { effect: n, evaluateLater: r, cleanup: i }) => { let o = r(t), a = () => { let e; return o(t => e = t), e }, l = r(`${t} = __placeholder`), s = e => l(() => { }, { scope: { __placeholder: e } }), u = a(); s(u), queueMicrotask(() => { if (!e._x_model) return; e._x_removeModelListeners.default(); let t = e._x_model.get, n = e._x_model.set, r = tB({ get: () => t(), set(e) { n(e) } }, { get: () => a(), set(e) { s(e) } }); i(r) }) }), eg("teleport", (e, { modifiers: t, expression: n }, { cleanup: r }) => { "template" !== e.tagName.toLowerCase() && eI("x-teleport can only be used on a <template> tag", e); let i = r9(n), o = e.content.cloneNode(!0).firstElementChild; e._x_teleport = o, o._x_teleportBack = e, e.setAttribute("data-teleport-template", !0), o.setAttribute("data-teleport-target", !0), e._x_forwardEvents && e._x_forwardEvents.forEach(t => { o.addEventListener(t, t => { t.stopPropagation(), e.dispatchEvent(new t.constructor(t.type, t)) }) }), F(o, {}, e); let a = (e, t, n) => { n.includes("prepend") ? t.parentNode.insertBefore(e, t) : n.includes("append") ? t.parentNode.insertBefore(e, t.nextSibling) : t.appendChild(e) }; M(() => { a(o, i, t), tp(() => { eX(o), o._x_ignore = !0 })() }), e._x_teleportPutBack = () => { let r = r9(n); M(() => { a(e._x_teleport, r, t) }) }, r(() => o.remove()) }); var rA = document.createElement("div"); function r9(e) { let t = tp(() => document.querySelector(e), () => rA)(); return t || eI(`Cannot find x-teleport element for selector: "${e}"`), t } var rC = () => { }; function rS(e, t, n, r) { let i = e, o = e => r(e), a = {}, l = (e, t) => n => t(e, n); if (n.includes("dot") && (t = rO(t)), n.includes("camel") && (t = rL(t)), n.includes("passive") && (a.passive = !0), n.includes("capture") && (a.capture = !0), n.includes("window") && (i = window), n.includes("document") && (i = document), n.includes("debounce")) { let s = n[n.indexOf("debounce") + 1] || "invalid-wait"; o = tI(o, rP(s.split("ms")[0]) ? Number(s.split("ms")[0]) : 250) } if (n.includes("throttle")) { let u = n[n.indexOf("throttle") + 1] || "invalid-wait"; o = tR(o, rP(u.split("ms")[0]) ? Number(u.split("ms")[0]) : 250) } return n.includes("prevent") && (o = l(o, (e, t) => { t.preventDefault(), e(t) })), n.includes("stop") && (o = l(o, (e, t) => { t.stopPropagation(), e(t) })), n.includes("once") && (o = l(o, (e, n) => { e(n), i.removeEventListener(t, o, a) })), (n.includes("away") || n.includes("outside")) && (i = document, o = l(o, (t, n) => { e.contains(n.target) || !1 !== n.target.isConnected && (e.offsetWidth < 1 && e.offsetHeight < 1 || !1 !== e._x_isShown && t(n)) })), n.includes("self") && (o = l(o, (t, n) => { n.target === e && t(n) })), o = l(o, (e, r) => { rN(t) && rM(r, n) || e(r) }), i.addEventListener(t, o, a), () => { i.removeEventListener(t, o, a) } } function rO(e) { return e.replace(/-/g, ".") } function rL(e) { return e.toLowerCase().replace(/-(\w)/g, (e, t) => t.toUpperCase()) } function rP(e) { return !Array.isArray(e) && !isNaN(e) } function rj(e) { return [" ", "_"].includes(e) ? e : e.replace(/([a-z])([A-Z])/g, "$1-$2").replace(/[_\s]/, "-").toLowerCase() } function rN(e) { return ["keydown", "keyup"].includes(e) } function rM(e, t) { let n = t.filter(e => !["window", "document", "prevent", "stop", "once", "capture"].includes(e)); if (n.includes("debounce")) { let r = n.indexOf("debounce"); n.splice(r, rP((n[r + 1] || "invalid-wait").split("ms")[0]) ? 2 : 1) } if (n.includes("throttle")) { let i = n.indexOf("throttle"); n.splice(i, rP((n[i + 1] || "invalid-wait").split("ms")[0]) ? 2 : 1) } if (0 === n.length || 1 === n.length && rT(e.key).includes(n[0])) return !1; let o = ["ctrl", "shift", "alt", "meta", "cmd", "super"].filter(e => n.includes(e)); return n = n.filter(e => !o.includes(e)), !(o.length > 0 && o.filter(t => (("cmd" === t || "super" === t) && (t = "meta"), e[`${t}Key`])).length === o.length && rT(e.key).includes(n[0])) } function rT(e) { if (!e) return []; e = rj(e); let t = { ctrl: "control", slash: "/", space: " ", spacebar: " ", cmd: "meta", esc: "escape", up: "arrow-up", down: "arrow-down", left: "arrow-left", right: "arrow-right", period: ".", comma: ",", equal: "=", minus: "-", underscore: "_" }; return t[e] = e, Object.keys(t).map(n => { if (t[n] === e) return n }).filter(e => e) } function rz(e, t, n, r) { return M(() => { if (n instanceof CustomEvent && void 0 !== n.detail) return null !== n.detail && void 0 !== n.detail ? n.detail : n.target.value; if ("checkbox" === e.type) { if (!Array.isArray(r)) return n.target.checked; { let i = null; return i = t.includes("number") ? rD(n.target.value) : t.includes("boolean") ? tj(n.target.value) : n.target.value, n.target.checked ? r.includes(i) ? r : r.concat([i]) : r.filter(e => !rI(e, i)) } } if ("select" === e.tagName.toLowerCase() && e.multiple) return t.includes("number") ? Array.from(n.target.selectedOptions).map(e => rD(e.value || e.text)) : t.includes("boolean") ? Array.from(n.target.selectedOptions).map(e => tj(e.value || e.text)) : Array.from(n.target.selectedOptions).map(e => e.value || e.text); { let o; return o = "radio" === e.type ? n.target.checked ? n.target.value : r : n.target.value, t.includes("number") ? rD(o) : t.includes("boolean") ? tj(o) : t.includes("trim") ? o.trim() : o } }) } function rD(e) { let t = e ? parseFloat(e) : null; return rR(t) ? t : e } function rI(e, t) { return e == t } function rR(e) { return !Array.isArray(e) && !isNaN(e) } function rB(e) { return null !== e && "object" == typeof e && "function" == typeof e.get && "function" == typeof e.set } rC.inline = (e, { modifiers: t }, { cleanup: n }) => { t.includes("self") ? e._x_ignoreSelf = !0 : e._x_ignore = !0, n(() => { t.includes("self") ? delete e._x_ignoreSelf : delete e._x_ignore }) }, eg("ignore", rC), eg("effect", tp((e, { expression: t }, { effect: n }) => { n(ei(e, t)) })), eg("model", (e, { modifiers: t, expression: n }, { effect: r, cleanup: i }) => { let o = e; t.includes("parent") && (o = e.parentNode); let a = ei(o, n), l; l = "string" == typeof n ? ei(o, `${n} = __placeholder`) : "function" == typeof n && "string" == typeof n() ? ei(o, `${n()} = __placeholder`) : () => { }; let s = () => { let e; return a(t => e = t), rB(e) ? e.get() : e }, u = e => { let t; a(e => t = e), rB(t) ? t.set(e) : l(() => { }, { scope: { __placeholder: e } }) }; "string" == typeof n && "radio" === e.type && M(() => { e.hasAttribute("name") || e.setAttribute("name", n) }); var c = "select" === e.tagName.toLowerCase() || ["checkbox", "radio"].includes(e.type) || t.includes("lazy") ? "change" : "input"; let f = t8 ? () => { } : rS(e, c, t, n => { u(rz(e, t, n, s())) }); if (t.includes("fill") && ([void 0, null, ""].includes(s()) || "checkbox" === e.type && Array.isArray(s()) || "select" === e.tagName.toLowerCase() && e.multiple) && u(rz(e, t, { target: e }, s())), e._x_removeModelListeners || (e._x_removeModelListeners = {}), e._x_removeModelListeners.default = f, i(() => e._x_removeModelListeners.default()), e.form) { let d = rS(e.form, "reset", [], n => { e5(() => e._x_model && e._x_model.set(rz(e, t, { target: e }, s()))) }); i(() => d()) } e._x_model = { get: () => s(), set(e) { u(e) } }, e._x_forceModelUpdate = t => { void 0 === t && "string" == typeof n && n.match(/\./) && (t = ""), window.fromModel = !0, M(() => t_(e, "value", t)), delete window.fromModel }, r(() => { let n = s(); t.includes("unintrusive") && document.activeElement.isSameNode(e) || e._x_forceModelUpdate(n) }) }), eg("cloak", e => queueMicrotask(() => M(() => e.removeAttribute(ep("cloak"))))), eW(() => `[${ep("init")}]`), eg("init", tp((e, { expression: t }, { evaluate: n }) => "string" == typeof t ? !!t.trim() && n(t, {}, !1) : n(t, {}, !1))), eg("text", (e, { expression: t }, { effect: n, evaluateLater: r }) => { let i = r(t); n(() => { i(t => { M(() => { e.textContent = t }) }) }) }), eg("html", (e, { expression: t }, { effect: n, evaluateLater: r }) => { let i = r(t); n(() => { i(t => { M(() => { e.innerHTML = t, e._x_ignoreSelf = !0, eX(e), delete e._x_ignoreSelf }) }) }) }), eO(eA(":", e9(ep("bind:")))); var r0 = (e, { value: t, modifiers: n, expression: r, original: i }, { effect: o, cleanup: a }) => { if (!t) { let l = {}; tH(l), ei(e, r)(t => { t3(e, t, i) }, { scope: l }); return } if ("key" === t) return rF(e, r); if (e._x_inlineBindings && e._x_inlineBindings[t] && e._x_inlineBindings[t].extract) return; let s = ei(e, r); o(() => s(i => { void 0 === i && "string" == typeof r && r.match(/\./) && (i = ""), M(() => t_(e, t, i, n)) })), a(() => { e._x_undoAddedClasses && e._x_undoAddedClasses(), e._x_undoAddedStyles && e._x_undoAddedStyles() }) }; function rF(e, t) { e._x_keyExpression = t } function rK(e) { return !!t8 && (!!tm || e.hasAttribute("data-has-alpine-state")) } function rU(e, t, n, r) { let i = e => "object" == typeof e && !Array.isArray(e), o = e; n(n => { r1(n) && n >= 0 && (n = Array.from(Array(n).keys(), e => e + 1)), void 0 === n && (n = []); let l = e._x_lookup, s = e._x_prevKeys, c = [], f = []; if (i(n)) n = Object.entries(n).map(([i, o]) => { let a = rW(t, o, i, n); r(t => { f.includes(t) && eI("Duplicate key on x-for", e), f.push(t) }, { scope: { index: i, ...a } }), c.push(a) }); else for (let d = 0; d < n.length; d++) { let p = rW(t, n[d], d, n); r(t => { f.includes(t) && eI("Duplicate key on x-for", e), f.push(t) }, { scope: { index: d, ...p } }), c.push(p) } let h = [], x = [], g = [], v = []; for (let m = 0; m < s.length; m++) { let y = s[m]; -1 === f.indexOf(y) && g.push(y) } s = s.filter(e => !g.includes(e)); let $ = "template"; for (let b = 0; b < f.length; b++) { let _ = f[b], w = s.indexOf(_); if (-1 === w) s.splice(b, 0, _), h.push([$, b]); else if (w !== b) { let E = s.splice(b, 1)[0], k = s.splice(w - 1, 1)[0]; s.splice(b, 0, k), s.splice(w, 0, E), x.push([E, k]) } else v.push(_); $ = _ } for (let A = 0; A < g.length; A++) { let C = g[A]; l[C]._x_effects && l[C]._x_effects.forEach(a), l[C].remove(), l[C] = null, delete l[C] } for (let S = 0; S < x.length; S++) { let [O, L] = x[S], P = l[O], j = l[L], N = document.createElement("div"); M(() => { j || eI('x-for ":key" is undefined or invalid', o, L, l), j.after(N), P.after(j), j._x_currentIfEl && j.after(j._x_currentIfEl), N.before(P), P._x_currentIfEl && P.after(P._x_currentIfEl), N.remove() }), j._x_refreshXForScope(c[f.indexOf(L)]) } for (let T = 0; T < h.length; T++) { let [z, D] = h[T], I = "template" === z ? o : l[z]; I._x_currentIfEl && (I = I._x_currentIfEl); let R = c[D], B = f[D], K = document.importNode(o.content, !0).firstElementChild, U = u(R); F(K, U, o), K._x_refreshXForScope = e => { Object.entries(e).forEach(([e, t]) => { U[e] = t }) }, M(() => { I.after(K), tp(() => eX(K))() }), "object" == typeof B && eI("x-for key cannot be an object, it must be a string or an integer", o), l[B] = K } for (let V = 0; V < v.length; V++)l[v[V]]._x_refreshXForScope(c[f.indexOf(v[V])]); o._x_prevKeys = f }) } function rV(e) { let t = /,([^,\}\]]*)(?:,([^,\}\]]*))?$/, n = e.match(/([\s\S]*?)\s+(?:in|of)\s+([\s\S]*)/); if (!n) return; let r = {}; r.items = n[2].trim(); let i = n[1].replace(/^\s*\(|\)\s*$/g, "").trim(), o = i.match(t); return o ? (r.item = i.replace(t, "").trim(), r.index = o[1].trim(), o[2] && (r.collection = o[2].trim())) : r.item = i, r } function rW(e, t, n, r) { let i = {}; return /^\[.*\]$/.test(e.item) && Array.isArray(t) ? e.item.replace("[", "").replace("]", "").split(",").map(e => e.trim()).forEach((e, n) => { i[e] = t[n] }) : /^\{.*\}$/.test(e.item) && !Array.isArray(t) && "object" == typeof t ? e.item.replace("{", "").replace("}", "").split(",").map(e => e.trim()).forEach(e => { i[e] = t[e] }) : i[e.item] = t, e.index && (i[e.index] = n), e.collection && (i[e.collection] = r), i } function r1(e) { return !Array.isArray(e) && !isNaN(e) } function rq() { } function rH(e, t, n) { eg(t, r => eI(`You can't use [x-${t}] without first installing the "${e}" plugin here: https://alpinejs.dev/plugins/${n}`, r)) } r0.inline = (e, { value: t, modifiers: n, expression: r }) => { t && (e._x_inlineBindings || (e._x_inlineBindings = {}), e._x_inlineBindings[t] = { expression: r, extract: !1 }) }, eg("bind", r0), eV(() => `[${ep("data")}]`), eg("data", (e, { expression: t }, { cleanup: n }) => { if (rK(e)) return; t = "" === t ? "{}" : t; let r = {}; G(r, e); let i = {}; t7(i, r); let o = er(e, t, { scope: i }); (void 0 === o || !0 === o) && (o = {}), G(o, e); let a = u(o); q(a); let l = F(e, a); a.init && er(e, a.init), n(() => { a.destroy && er(e, a.destroy), l() }) }), tg((e, t) => { e._x_dataStack && (t._x_dataStack = e._x_dataStack, t.setAttribute("data-has-alpine-state", !0)) }), eg("show", (e, { modifiers: t, expression: n }, { effect: r }) => { let i = ei(e, n); e._x_doHide || (e._x_doHide = () => { M(() => { e.style.setProperty("display", "none", t.includes("important") ? "important" : void 0) }) }), e._x_doShow || (e._x_doShow = () => { M(() => { 1 === e.style.length && "none" === e.style.display ? e.removeAttribute("style") : e.style.removeProperty("display") }) }); let o = () => { e._x_doHide(), e._x_isShown = !1 }, a = () => { e._x_doShow(), e._x_isShown = !0 }, l = () => setTimeout(a), s = to(e => e ? a() : o(), t => { "function" == typeof e._x_toggleAndCascadeWithTransitions ? e._x_toggleAndCascadeWithTransitions(e, t, a, o) : t ? l() : o() }), u, c = !0; r(() => i(e => { (c || e !== u) && (t.includes("immediate") && (e ? l() : o()), s(e), u = e, c = !1) })) }), eg("for", (e, { expression: t }, { effect: n, cleanup: r }) => { let i = rV(t), o = ei(e, i.items), a = ei(e, e._x_keyExpression || "index"); e._x_prevKeys = [], e._x_lookup = {}, n(() => rU(e, i, o, a)), r(() => { Object.values(e._x_lookup).forEach(e => e.remove()), delete e._x_prevKeys, delete e._x_lookup }) }), rq.inline = (e, { expression: t }, { cleanup: n }) => { let r = e1(e); r._x_refs || (r._x_refs = {}), r._x_refs[t] = e, n(() => delete r._x_refs[t]) }, eg("ref", rq), eg("if", (e, { expression: t }, { effect: n, cleanup: r }) => { "template" !== e.tagName.toLowerCase() && eI("x-if can only be used on a <template> tag", e); let i = ei(e, t), o = () => { if (e._x_currentIfEl) return e._x_currentIfEl; let t = e.content.cloneNode(!0).firstElementChild; return F(t, {}, e), M(() => { e.after(t), tp(() => eX(t))() }), e._x_currentIfEl = t, e._x_undoIf = () => { eD(t, e => { e._x_effects && e._x_effects.forEach(a) }), t.remove(), delete e._x_currentIfEl }, t }, l = () => { e._x_undoIf && (e._x_undoIf(), delete e._x_undoIf) }; n(() => i(e => { e ? o() : l() })), r(() => e._x_undoIf && e._x_undoIf()) }), eg("id", (e, { expression: t }, { evaluate: n }) => { n(t).forEach(t => rw(e, t)) }), tg((e, t) => { e._x_ids && (t._x_ids = e._x_ids) }), eO(eA("@", e9(ep("on:")))), eg("on", tp((e, { value: t, modifiers: n, expression: r }, { cleanup: i }) => { let o = r ? ei(e, r) : () => { }; "template" === e.tagName.toLowerCase() && (e._x_forwardEvents || (e._x_forwardEvents = []), e._x_forwardEvents.includes(t) || e._x_forwardEvents.push(t)); let a = rS(e, t, n, e => { o(() => { }, { scope: { $event: e }, params: [e] }) }); i(() => a()) })), rH("Collapse", "collapse", "collapse"), rH("Intersect", "intersect", "intersect"), rH("Focus", "trap", "focus"), rH("Mask", "mask", "mask"), tJ.setEvaluator(el), tJ.setReactivityEngine({ reactive: rh, effect: nw, release: nE, raw: rv }); var r3 = tJ; window.Alpine = r3, queueMicrotask(() => { r3.start() })
-})();
+window.Components = {}
+
+window.Components.listbox = function listbox(options) {
+  let modelName = options.modelName || 'selected'
+  let pointer = useTrackedPointer()
+
+  return {
+    init() {
+      this.optionCount = this.$refs.listbox.children.length
+      this.$watch('activeIndex', (value) => {
+        if (!this.open) return
+
+        if (this.activeIndex === null) {
+          this.activeDescendant = ''
+          return
+        }
+
+        this.activeDescendant = this.$refs.listbox.children[this.activeIndex].id
+      })
+    },
+    activeDescendant: null,
+    optionCount: null,
+    open: false,
+    activeIndex: null,
+    selectedIndex: 0,
+    get active() {
+      return this.items[this.activeIndex]
+    },
+    get [modelName]() {
+      return this.items[this.selectedIndex]
+    },
+    choose(option) {
+      this.selectedIndex = option
+      this.open = false
+    },
+    onButtonClick() {
+      if (this.open) return
+      this.activeIndex = this.selectedIndex
+      this.open = true
+      this.$nextTick(() => {
+        this.$refs.listbox.focus()
+        this.$refs.listbox.children[this.activeIndex].scrollIntoView({ block: 'nearest' })
+      })
+    },
+    onOptionSelect() {
+      if (this.activeIndex !== null) {
+        this.selectedIndex = this.activeIndex
+      }
+      this.open = false
+      this.$refs.button.focus()
+    },
+    onEscape() {
+      this.open = false
+      this.$refs.button.focus()
+    },
+    onArrowUp() {
+      this.activeIndex = this.activeIndex - 1 < 0 ? this.optionCount - 1 : this.activeIndex - 1
+      this.$refs.listbox.children[this.activeIndex].scrollIntoView({ block: 'nearest' })
+    },
+    onArrowDown() {
+      this.activeIndex = this.activeIndex + 1 > this.optionCount - 1 ? 0 : this.activeIndex + 1
+      this.$refs.listbox.children[this.activeIndex].scrollIntoView({ block: 'nearest' })
+    },
+    onMouseEnter(evt) {
+      pointer.update(evt)
+    },
+    onMouseMove(evt, newIndex) {
+      // Only highlight when the cursor has moved
+      // Pressing arrow keys can otherwise scroll the container and override the selected item
+      if (!pointer.wasMoved(evt)) return
+      this.activeIndex = newIndex
+    },
+    onMouseLeave(evt) {
+      // Only unhighlight when the cursor has moved
+      // Pressing arrow keys can otherwise scroll the container and override the selected item
+      if (!pointer.wasMoved(evt)) return
+      this.activeIndex = null
+    },
+    ...options,
+  }
+}
+
+window.Components.menu = function menu(options = { open: false }) {
+  let pointer = useTrackedPointer()
+
+  return {
+    init() {
+      this.items = Array.from(this.$el.querySelectorAll('[role="menuitem"]'))
+      this.$watch('open', () => {
+        if (this.open) {
+          this.activeIndex = -1
+        }
+      })
+    },
+    activeDescendant: null,
+    activeIndex: null,
+    items: null,
+    open: options.open,
+    focusButton() {
+      this.$refs.button.focus()
+    },
+    onButtonClick() {
+      this.open = !this.open
+      if (this.open) {
+        this.$nextTick(() => {
+          this.$refs['menu-items'].focus()
+        })
+      }
+    },
+    onButtonEnter() {
+      this.open = !this.open
+      if (this.open) {
+        this.activeIndex = 0
+        this.activeDescendant = this.items[this.activeIndex].id
+        this.$nextTick(() => {
+          this.$refs['menu-items'].focus()
+        })
+      }
+    },
+    onArrowUp() {
+      if (!this.open) {
+        this.open = true
+        this.activeIndex = this.items.length - 1
+        this.activeDescendant = this.items[this.activeIndex].id
+
+        return
+      }
+
+      if (this.activeIndex === 0) {
+        return
+      }
+
+      this.activeIndex = this.activeIndex === -1 ? this.items.length - 1 : this.activeIndex - 1
+      this.activeDescendant = this.items[this.activeIndex].id
+    },
+    onArrowDown() {
+      if (!this.open) {
+        this.open = true
+        this.activeIndex = 0
+        this.activeDescendant = this.items[this.activeIndex].id
+
+        return
+      }
+
+      if (this.activeIndex === this.items.length - 1) {
+        return
+      }
+
+      this.activeIndex = this.activeIndex + 1
+      this.activeDescendant = this.items[this.activeIndex].id
+    },
+    onClickAway($event) {
+      if (this.open) {
+        const focusableSelector = [
+          '[contentEditable=true]',
+          '[tabindex]',
+          'a[href]',
+          'area[href]',
+          'button:not([disabled])',
+          'iframe',
+          'input:not([disabled])',
+          'select:not([disabled])',
+          'textarea:not([disabled])',
+        ]
+          .map((selector) => `${selector}:not([tabindex='-1'])`)
+          .join(',')
+
+        this.open = false
+
+        if (!$event.target.closest(focusableSelector)) {
+          this.focusButton()
+        }
+      }
+    },
+
+    onMouseEnter(evt) {
+      pointer.update(evt)
+    },
+    onMouseMove(evt, newIndex) {
+      // Only highlight when the cursor has moved
+      // Pressing arrow keys can otherwise scroll the container and override the selected item
+      if (!pointer.wasMoved(evt)) return
+      this.activeIndex = newIndex
+    },
+    onMouseLeave(evt) {
+      // Only unhighlight when the cursor has moved
+      // Pressing arrow keys can otherwise scroll the container and override the selected item
+      if (!pointer.wasMoved(evt)) return
+      this.activeIndex = -1
+    },
+  }
+}
+
+window.Components.popoverGroup = function popoverGroup() {
+  return {
+    __type: 'popoverGroup',
+    init() {
+      let handler = (e) => {
+        if (!document.body.contains(this.$el)) {
+          window.removeEventListener('focus', handler, true)
+          return
+        }
+        if (e.target instanceof Element && !this.$el.contains(e.target)) {
+          window.dispatchEvent(
+            new CustomEvent('close-popover-group', {
+              detail: this.$el,
+            })
+          )
+        }
+      }
+      window.addEventListener('focus', handler, true)
+    },
+  }
+}
+
+window.Components.popover = function popover({ open = false, focus = false } = {}) {
+  const focusableSelector = [
+    '[contentEditable=true]',
+    '[tabindex]',
+    'a[href]',
+    'area[href]',
+    'button:not([disabled])',
+    'iframe',
+    'input:not([disabled])',
+    'select:not([disabled])',
+    'textarea:not([disabled])',
+  ]
+    .map((selector) => `${selector}:not([tabindex='-1'])`)
+    .join(',')
+
+  function focusFirst(container) {
+    const focusableElements = Array.from(container.querySelectorAll(focusableSelector))
+
+    function tryFocus(element) {
+      if (element === undefined) return
+
+      element.focus({ preventScroll: true })
+
+      if (document.activeElement !== element) {
+        tryFocus(focusableElements[focusableElements.indexOf(element) + 1])
+      }
+    }
+
+    tryFocus(focusableElements[0])
+  }
+
+  return {
+    __type: 'popover',
+    open,
+    init() {
+      if (focus) {
+        this.$watch('open', (open) => {
+          if (open) {
+            this.$nextTick(() => {
+              focusFirst(this.$refs.panel)
+            })
+          }
+        })
+      }
+
+      let handler = (e) => {
+        if (!document.body.contains(this.$el)) {
+          window.removeEventListener('focus', handler, true)
+          return
+        }
+        let ref = focus ? this.$refs.panel : this.$el
+        if (this.open && e.target instanceof Element && !ref.contains(e.target)) {
+          let node = this.$el
+          while (node.parentNode) {
+            node = node.parentNode
+            if (node.__x instanceof this.constructor) {
+              if (node.__x.$data.__type === 'popoverGroup') return
+              if (node.__x.$data.__type === 'popover') break
+            }
+          }
+          this.open = false
+        }
+      }
+
+      window.addEventListener('focus', handler, true)
+    },
+    onEscape() {
+      this.open = false
+      if (this.restoreEl) {
+        this.restoreEl.focus()
+      }
+    },
+    onClosePopoverGroup(e) {
+      if (e.detail.contains(this.$el)) {
+        this.open = false
+      }
+    },
+    toggle(e) {
+      this.open = !this.open
+      if (this.open) {
+        this.restoreEl = e.currentTarget
+      } else if (this.restoreEl) {
+        this.restoreEl.focus()
+      }
+    },
+  }
+}
+
+window.Components.radioGroup = function radioGroup({ initialCheckedIndex = 0 } = {}) {
+  return {
+    value: undefined,
+    active: undefined,
+    init() {
+      let options = Array.from(this.$el.querySelectorAll('input'))
+
+      this.value = options[initialCheckedIndex]?.value
+
+      for (let option of options) {
+        option.addEventListener('change', () => {
+          this.active = option.value
+        })
+        option.addEventListener('focus', () => {
+          this.active = option.value
+        })
+      }
+
+      window.addEventListener(
+        'focus',
+        () => {
+          console.log('Focus change')
+          if (!options.includes(document.activeElement)) {
+            console.log('HIT')
+            this.active = undefined
+          }
+        },
+        true
+      )
+    },
+  }
+}
+
+window.Components.tabs = function tabs() {
+  return {
+    selectedIndex: 0,
+    onTabClick(event) {
+      if (!this.$el.contains(event.detail)) return
+
+      let tabs = Array.from(this.$el.querySelectorAll('[x-data^="Components.tab("]'))
+      let panels = Array.from(this.$el.querySelectorAll('[x-data^="Components.tabPanel("]'))
+
+      let idx = tabs.indexOf(event.detail)
+      this.selectedIndex = idx
+
+      window.dispatchEvent(
+        new CustomEvent('tab-select', {
+          detail: {
+            tab: event.detail,
+            panel: panels[idx],
+          },
+        })
+      )
+    },
+    onTabKeydown(event) {
+      if (!this.$el.contains(event.detail.tab)) return
+
+      let tabs = Array.from(this.$el.querySelectorAll('[x-data^="Components.tab("]'))
+      let tabIndex = tabs.indexOf(event.detail.tab)
+
+      if (event.detail.key === 'ArrowLeft') {
+        this.onTabClick({ detail: tabs[(tabIndex - 1 + tabs.length) % tabs.length] })
+      } else if (event.detail.key === 'ArrowRight') {
+        this.onTabClick({ detail: tabs[(tabIndex + 1) % tabs.length] })
+      } else if (event.detail.key === 'Home' || event.detail.key === 'PageUp') {
+        this.onTabClick({ detail: tabs[0] })
+      } else if (event.detail.key === 'End' || event.detail.key === 'PageDown') {
+        this.onTabClick({ detail: tabs[tabs.length - 1] })
+      }
+    },
+  }
+}
+
+window.Components.tab = function tab(defaultIndex = 0) {
+  return {
+    selected: false,
+    init() {
+      let tabs = Array.from(
+        this.$el
+          .closest('[x-data^="Components.tabs("]')
+          .querySelectorAll('[x-data^="Components.tab("]')
+      )
+      this.selected = tabs.indexOf(this.$el) === defaultIndex
+      this.$watch('selected', (selected) => {
+        if (selected) {
+          this.$el.focus()
+        }
+      })
+    },
+    onClick() {
+      window.dispatchEvent(
+        new CustomEvent('tab-click', {
+          detail: this.$el,
+        })
+      )
+    },
+    onKeydown(event) {
+      if (['ArrowLeft', 'ArrowRight', 'Home', 'PageUp', 'End', 'PageDown'].includes(event.key)) {
+        event.preventDefault()
+      }
+
+      window.dispatchEvent(
+        new CustomEvent('tab-keydown', {
+          detail: {
+            tab: this.$el,
+            key: event.key,
+          },
+        })
+      )
+    },
+    onTabSelect(event) {
+      this.selected = event.detail.tab === this.$el
+    },
+  }
+}
+
+window.Components.tabPanel = function tabPanel(defaultIndex = 0) {
+  return {
+    selected: false,
+    init() {
+      let panels = Array.from(
+        this.$el
+          .closest('[x-data^="Components.tabs("]')
+          .querySelectorAll('[x-data^="Components.tabPanel("]')
+      )
+      this.selected = panels.indexOf(this.$el) === defaultIndex
+    },
+    onTabSelect(event) {
+      this.selected = event.detail.panel === this.$el
+    },
+  }
+}
+
+function useTrackedPointer() {
+  /** @type {[x: number, y: number]} */
+  let lastPos = [-1, -1]
+
+  return {
+    /**
+     * @param {PointerEvent} evt
+     */
+    wasMoved(evt) {
+      let newPos = [evt.screenX, evt.screenY]
+
+      if (lastPos[0] === newPos[0] && lastPos[1] === newPos[1]) {
+        return false
+      }
+
+      lastPos = newPos
+      return true
+    },
+
+    /**
+     * @param {PointerEvent} evt
+     */
+    update(evt) {
+      lastPos = [evt.screenX, evt.screenY]
+    },
+  }
+}

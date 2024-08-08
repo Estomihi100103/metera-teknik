@@ -5,7 +5,7 @@
     <div class="bg-white" id="category-list">
         <div class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
             <header>
-                <h1 class="text-2xl font-bold tracking-tight text-gray-900">Kategori Pilihan</h1>
+                <p class="text-2xl font-bold tracking-tight text-gray-900">Kategori Pilihan</p>
             </header>
 
             <section aria-labelledby="category-list">

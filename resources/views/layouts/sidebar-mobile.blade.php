@@ -1,53 +1,59 @@
-<!-- Mobile menu -->
-<div x-show="open" class="relative z-40 lg:hidden"
-    x-description="Off-canvas menu for mobile, show/hide based on off-canvas menu state." x-ref="dialog" aria-modal="true"
-    style="display: none;">
-    <div x-show="open" x-transition:enter="transition-opacity ease-linear duration-300"
-        x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100"
-        x-transition:leave="transition-opacity ease-linear duration-300" x-transition:leave-start="opacity-100"
-        x-transition:leave-end="opacity-0"
-        x-description="Off-canvas menu backdrop, show/hide based on off-canvas menu state."
-        class="fixed inset-0 bg-black bg-opacity-25" style="display: none;"></div>
-    <div class="fixed inset-0 z-40 flex">
-        <div x-show="open" x-transition:enter="transition ease-in-out duration-300 transform"
-            x-transition:enter-start="-translate-x-full" x-transition:enter-end="translate-x-0"
-            x-transition:leave="transition ease-in-out duration-300 transform" x-transition:leave-start="translate-x-0"
-            x-transition:leave-end="-translate-x-full"
-            x-description="Off-canvas menu, show/hide based on off-canvas menu state."
-            class="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-12 shadow-xl"
-            @click.away="open = false" style="display: none;">
-            <div class="flex px-4 pb-2 pt-5">
-                <button type="button" class="-m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
-                    @click="open = false">
-                    <span class="sr-only">Close menu</span>
-                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                        aria-hidden="true">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12">
-                        </path>
-                    </svg>
-                </button>
-            </div>
-            <div class="space-y-6 border-t border-gray-200 px-4 py-6 font-semibold">
-                <div class="flow-root">
-                    <a href="/" class="-m-2 block p-2  font-semibold text-gray-900 hover:bg-gray-50 hover:text-indigo-600">Company</a>
-                </div>
-                <div class="flow-root">
-                    <a href="/product" class="-m-2 block p-2  font-semibold text-gray-900 hover:bg-gray-50 hover:text-indigo-600">Product</a>
-                </div>
-                <div class="flow-root">
-                    <a href="/katalog" class="-m-2 block p-2  font-semibold text-gray-900 hover:bg-gray-50 hover:text-indigo-600">Katalog</a>
-                </div>
-                <div class="flow-root">
-                    <a href="/contact" class="-m-2 block p-2  font-semibold text-gray-900 hover:bg-gray-50 hover:text-indigo-600">Contact</a>
-                </div>
-                <div class="flow-root">
-                    <a href="/calibration" class="-m-2 block p-2  font-semibold text-gray-900 hover:bg-gray-50 hover:text-indigo-600">Service &
-                        Kalibrasi</a>
-                </div>
-            </div>
-            <div class="space-y-6 border-t border-gray-200 px-4 py-6">
-                <!-- Currency selector -->
-            </div>
-        </div>
-    </div>
-</div>
+ <!-- Sidebar -->
+ <div id="mobile-menu" class="fixed inset-0 z-50 hidden flex ">
+     <div id="sidebar-backdrop" class="fixed inset-0 bg-black bg-opacity-25"></div>
+     <div class="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-12 shadow-xl">
+         <div class="flex px-4 pb-2 pt-5">
+             <button id="close-sidebar" class="-m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400">
+                 <span class="sr-only">Close menu</span>
+                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+                     aria-hidden="true">
+                     <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+                 </svg>
+             </button>
+         </div>
+         <div class="space-y-6 border-t border-gray-200 px-4 py-6 font-semibold">
+             <a href="/"
+                 class="-m-2 block p-2 font-semibold text-gray-900 hover:bg-gray-50 hover:text-indigo-600">Company</a>
+             <a href="/product"
+                 class="-m-2 block p-2 font-semibold text-gray-900 hover:bg-gray-50 hover:text-indigo-600">Product</a>
+             <a href="/katalog"
+                 class="-m-2 block p-2 font-semibold text-gray-900 hover:bg-gray-50 hover:text-indigo-600">Katalog</a>
+             <a href="/contact"
+                 class="-m-2 block p-2 font-semibold text-gray-900 hover:bg-gray-50 hover:text-indigo-600">Contact</a>
+             <a href="/calibration"
+                 class="-m-2 block p-2 font-semibold text-gray-900 hover:bg-gray-50 hover:text-indigo-600">Service &
+                 Kalibrasi</a>
+         </div>
+     </div>
+ </div>
+ <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuButton = document.getElementById('mobile-menu-button');
+        const menu = document.getElementById('mobile-menu');
+        const closeButton = document.getElementById('close-sidebar');
+        const menuOpenIcon = document.getElementById('menu-open-icon');
+        const menuCloseIcon = document.getElementById('menu-close-icon');
+        const sidebarBackdrop = document.getElementById('sidebar-backdrop');
+
+        // Toggle menu visibility
+        menuButton.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            menuOpenIcon.classList.toggle('hidden');
+            menuCloseIcon.classList.toggle('hidden');
+        });
+
+        // Close menu when clicking the close button
+        closeButton.addEventListener('click', () => {
+            menu.classList.add('hidden');
+            menuOpenIcon.classList.remove('hidden');
+            menuCloseIcon.classList.add('hidden');
+        });
+
+        // Close menu when clicking the backdrop
+        sidebarBackdrop.addEventListener('click', () => {
+            menu.classList.add('hidden');
+            menuOpenIcon.classList.remove('hidden');
+            menuCloseIcon.classList.add('hidden');
+        });
+    });
+</script>

@@ -12,11 +12,12 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::with('category')->get();
-
+        // ambil data brand 
+        $brands = Brand::withCount('products')->with('products')->get();
         $meta_title = 'Produk Metera Teknik Indonesia';
         $meta_description = 'Produk flow meter solar dan meteran air yang kami supplai beragam seperti halnya: flow meter digital, meteran air PDAM, meteran air digital, flow meter air dan jenis flow meter lainya';
         $meta_keywords = 'Flow Meter, Fill Rite, Strainer, Pompa Industri, Rocker, Alat Teknik Industri';
-        return view('product.index2', compact('meta_title', 'products', 'meta_description', 'meta_keywords'));
+        return view('product.index', compact('meta_title', 'products', 'meta_description', 'meta_keywords', 'brands'));
     }
 
 

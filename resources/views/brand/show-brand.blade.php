@@ -7,8 +7,8 @@
             <div
                 class="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:grid lg:max-w-7xl lg:grid-cols-2 lg:gap-x-8 lg:px-8">
                 <!-- Product details -->
-                <div class="lg:max-w-lg lg:self-end">
-                    <div class="mt-4">
+                <div class="lg:max-w-lg lg:self-end mt-4">
+                    <div class="mt-14 sm:mt-12">
                         <h1 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{{ $brand->name }}</h1>
                     </div>
                     <section aria-labelledby="information-heading" class="mt-4">

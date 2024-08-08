@@ -1,7 +1,7 @@
 <footer aria-labelledby="footer-heading" class="bg-gray-900 font-bold text-3xl">
     <h2 id="footer-heading" class="sr-only">Footer</h2>
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="py-20 xl:grid xl:grid-cols-3 xl:gap-8">
+        <div class="py-10 xl:grid xl:grid-cols-3 xl:gap-8">
             <div class="grid grid-cols-2 gap-8 xl:col-span-2">
                 <div class="space-y-12 md:grid md:grid-cols-2 md:gap-8 md:space-y-0">
                     <div>
@@ -61,7 +61,7 @@
             </div>
         </div>
 
-        <div class="border-t border-gray-800 py-10">
+        <div class="border-t border-gray-800 py-5">
             <p class="text-sm text-gray-400">Copyright © 2024 Metera Teknik Indonesia, Inc.</p>
         </div>
     </div>

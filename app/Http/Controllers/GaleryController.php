@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 use App\Models\Galeri;
 
 use Illuminate\Http\Request;
+use App\Models\Brand;
 
 class GaleryController extends Controller
 {
     //indes 
     public function index()
     {   
+        $brands = Brand::withCount('products')->with('products')->get();
         $meta_title = 'Project | Liquid Control, Flow Meter, Water Meter';
         $meta_description = 'Project Liquid Control, Flow Meter, Water Meter';
         $meta_keywords = 'Project Liquid Control, Flow Meter, Water Meter';
@@ -17,6 +19,6 @@ class GaleryController extends Controller
         //ambil data dari Galery  berdasarkan yang terbaru
         $galeries = Galeri::latest()->get();
         
-        return view('galeri.index' , compact('galeries', 'meta_title', 'meta_description', 'meta_keywords'));
+        return view('galeri.index' , compact('galeries', 'meta_title', 'meta_description', 'meta_keywords', 'brands'));
     }
 }

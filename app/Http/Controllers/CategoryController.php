@@ -12,10 +12,11 @@ class CategoryController extends Controller
     public function index()
     {
         $categories = Category::all();
+        $brands = Brand::withCount('products')->with('products')->get();
         $meta_title = "Distributor Flow Meter";
         $meta_description = "Distributor Water Meter, Wire Mesh Stainles, Kobe, Alat Teknik Sipil";
         $meta_keywords = "Flow Meter, Rota Meter, Gas Detector MSA";
-        return view('category.index', compact('categories', 'meta_title', 'meta_description', 'meta_keywords'));
+        return view('category.index', compact('categories', 'meta_title', 'meta_description', 'meta_keywords', 'brands'));
     }
 
     public function show(Category $category)

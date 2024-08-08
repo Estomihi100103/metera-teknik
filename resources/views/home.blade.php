@@ -3,9 +3,9 @@
 @section('content')
     @include('layouts.carousel')
     <!-- Category section -->
-    <section aria-labelledby="category-heading" class="pt-24 sm:pt-32 xl:mx-auto xl:max-w-7xl xl:px-8">
+    <section aria-labelledby="category-heading" class="pt-20 sm:pt-28 xl:mx-auto xl:max-w-7xl xl:px-8">
         <div class="px-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8 xl:px-0">
-            <h2 id="category-heading" class="text-2xl font-bold tracking-tight text-gray-900">Kategori Produk</h2>
+            <p id="category-heading" class="text-2xl font-bold tracking-tight text-gray-900">Kategori Produk</p>
             <a href="/brands" class="hidden text-sm font-semibold text-indigo-600 hover:text-indigo-500 sm:block">
                 Lihat semua kategori
                 <span aria-hidden="true"> →</span>
@@ -48,7 +48,7 @@
     </section>
 
     <!-- Featured section -->
-    <section aria-labelledby="services-heading" class="mx-auto max-w-7xl px-4 pt-24 sm:px-6 sm:pt-32 lg:px-8">
+    <section aria-labelledby="services-heading" class="mx-auto max-w-7xl px-4 sm:px-6 pt-20 sm:pt-28 lg:px-8">
         <div class="relative overflow-hidden rounded-lg">
             <div class="absolute inset-0">
                 <img src="https://images.unsplash.com/photo-1629540946404-ebe133e99f49?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=MnwxfDB8MXxyYW5kb218MHx8b2Zmc2hvcmUsb2lsLGRyaWxsaW5nfHx8fHx8MTY5MTQyMTY4Mg&ixlib=rb-4.0.3&q=80&w=1080"
@@ -56,9 +56,9 @@
             </div>
             <div class="relative bg-gray-900 bg-opacity-75 px-6 py-32 sm:px-12 sm:py-40 lg:px-16">
                 <div class="relative mx-auto flex max-w-3xl flex-col items-center text-center">
-                    <h2 id="services-heading" class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                    <p id="services-heading" class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
                         Layanan Kami
-                    </h2>
+                    </p>
                     <h3 class="mt-3 text-xl text-white">Metera Teknik Indonesia adalah perusahaan distributor alat-alat industri seperti flow
                         meter, water meter dan alat teknik industri lainnya. Produk kami digunakan untuk mengukur berbagai jenis cairan, mulai dari gas,
                         minyak, air hingga zat kimia korosif. Dengan keandalan dan akurasi, kami melayani berbagai sektor
@@ -72,13 +72,14 @@
         </div>
     </section>
 
-    <div>
-        <div class="mx-auto max-w-7xl py-24 sm:px-2 sm:py-32 lg:px-4">
+    <!--Service section-->
+    <section>
+        <div class="mx-auto max-w-7xl  sm:px-2 pt-20 sm:pt-28 lg:px-4">
             <div class="mx-auto max-w-2xl px-4 lg:max-w-none">
                 <div class="grid grid-cols-1 items-center gap-x-16 gap-y-10 lg:grid-cols-2">
                     <div>
-                        <h2 class="text-4xl font-bold tracking-tight text-gray-900">Other
-                            service</h2>
+                        <p class="text-4xl font-bold tracking-tight text-gray-900">Other
+                            service</p>
                         <p class="mt-4 text-gray-500 text-xl">Selain sebagai distributor, Metera Teknik Indonesia juga menyediakan berbagai
                             layanan tambahan untuk memastikan semua perangkat berfungsi dengan optimal</p>
                     </div>
@@ -159,8 +160,7 @@
                 </div>
             </div>
         </div>
-    </div>
-
+    </section>
 
     <!-- Project section -->
     <section aria-labelledby="project-heading" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -170,7 +170,7 @@
             </div>
             <div class="relative bg-gray-900 bg-opacity-75 px-6 py-32 sm:px-12 sm:py-40 lg:px-16">
                 <div class="relative mx-auto flex max-w-3xl flex-col items-center text-center">
-                    <h2 id="project-heading" class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Project</h2>
+                    <p id="project-heading" class="text-3xl font-bold tracking-tight text-white sm:text-4xl">Project</p>
                     <p class="mt-3 text-xl text-white">Metera Teknik Indonesia dengan bangga telah menjadi mitra andal dalam melayani
                         berbagai perusahaan industri terkemuka di Indonesia. Kepercayaan ini tercapai berkat komitmen kami
                         terhadap kualitas dan keandalan produk.</p>
@@ -184,7 +184,7 @@
     <!-- Latest Products section -->
     <section aria-labelledby="latest-products-heading"
         class="mx-auto max-w-xl px-4 pt-24 sm:px-6 sm:pt-32 lg:max-w-7xl lg:px-8 mb-20">
-        <h2 id="latest-products-heading" class="text-2xl font-bold tracking-tight text-gray-900">Produk Terbaru</h2>
+        <p id="latest-products-heading" class="text-2xl font-bold tracking-tight text-gray-900">Produk Terbaru</p>
         <p class="mt-4 text-base text-gray-500">Setiap siklus produk, kami bermitra dengan para ahli industri terkemuka
             untuk menghadirkan lini inovasi yang dipengaruhi oleh rekayasa presisi dan keahlian teknologi, mewujudkan esensi
             efisiensi dan akurasi dalam instrumen seperti flow meter dan alat industri lainnya.</p>

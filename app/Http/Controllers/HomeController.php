@@ -53,10 +53,11 @@ class HomeController extends Controller
 
     public function contactUs()
     {
+        $brands = Brand::withCount('products')->with('products')->get();
         $meta_title = 'Kontak Metera Teknik Indonesia';
         $meta_description = 'Kontak kami untuk informasi lebih lanjut.';
         $meta_keywords = 'Kontak Metera Teknik Indonesia, Kontak Metera Teknik';
 
-        return view('contactUs.index', compact('meta_title', 'meta_description', 'meta_keywords'));
+        return view('contactUs.index', compact('meta_title', 'meta_description', 'meta_keywords', 'brands'));
     }
 }
